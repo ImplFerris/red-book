@@ -16,6 +16,8 @@ In this chapter, we will learn how to write a driver for this sensor. I chose th
 
 Another benefit is that the DHT22 is supported by the Wokwi simulator. That means once we write the driver, we can test it in a virtual environment without needing real hardware.  But I still recommend running it on real hardware if you can - just to get the actual feel of working with a physical device.
 
+> Note: While we're building our own driver from scratch for educational purposes, there are already existing crates available for the DHT22 sensor, such as dht-sensor. You can also explore those crates.
+
 ### DHT22 Sensor and Module
 The DHT22 is available in two forms: the bare sensor and a ready-to-use module. The bare sensor comes in a 4-pin package, but only three of those pins are needed. The module version is typically provided with just three pins, which are the ones actually needed for operation.
 
