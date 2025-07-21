@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2050" height="550">
+<!--
+  Source: https://github.com/ImplFerris/ImplFerris
+  Copyright (c) 2025 implrust.com
+  Licensed under CC BY-SA 4.0
+-->
+  <style>
+    .host   { fill: #e53935; font-weight: bold; }
+    .sensor { fill: #1e88e5; font-weight: bold; }
+    .bit    { fill: #43a047; font-weight: bold; }
+    .label  { fill: #424242; font-weight: bold; }
+    .small  { font-size: 28px; }
+    .large  { font-size: 38px; }
+    .arrow  { stroke: #555; stroke-width: 2; marker-end: url(#arrow); marker-start: url(#arrow); }
+  </style>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5"
+      orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555" />
+    </marker>
+  </defs>
+
+  <!-- Baseline -->
+<line x1="0" y1="300" x2="1850" y2="300" stroke="#999" stroke-dasharray="6"/>
+
+  <!-- IDLE HIGH -->
+  <polyline points="0,150 100,150" stroke="#e53935" stroke-width="3" fill="none"/>
+  <text x="10" y="120" class="small host">Idle HIGH</text>
+
+  <!-- Host Command: 1ms LOW -->
+  <polyline points="100,150 100,300 500,300 500,150" stroke="#e53935" stroke-width="3" fill="none"/>
+  <text x="180" y="340" class="small host">MCU Starts (1 ms LOW)</text>
+
+  <!-- Host Release: 20-40µs HIGH -->
+  <polyline points="500,150 540,150" stroke="#e53935" stroke-width="3" fill="none"/>
+  <text x="480" y="120" class="small host">20-40 µs</text>
+
+  <!-- Sensor Response: 80µs LOW -->
+  <polyline points="540,150 540,300 700,300 700,150" stroke="#1e88e5" stroke-width="3" fill="none"/>
+  <text x="590" y="340" class="small sensor">80 µs</text>
+  <text x="600" y="380" class="small sensor">Sensor Response</text>
+
+  <!-- Sensor HIGH: 80µs -->
+  <polyline points="700,150 860,150" stroke="#1e88e5" stroke-width="3" fill="none"/>
+  <text x="740" y="120" class="small sensor">80 µs</text>
+
+  <!-- Bit 0: 50µs LOW + 28µs HIGH -->
+  <polyline points="860,150 860,300 1010,300 1010,150 1095,150 1095,300" stroke="#43a047" stroke-width="3" fill="none"/>
+  <text x="905" y="340" class="small bit">50 µs</text>
+  <text x="1010" y="120" class="small bit">26-28 µs</text>
+
+  <!-- Arrow and label below Bit 0 -->
+  <line x1="860" y1="420" x2="1095" y2="420" class="arrow"/>
+  <text x="915" y="450" class="small bit">Bit value: "0"</text>
+
+  <!-- Bit 1: 50µs LOW + 70µs HIGH -->
+  <polyline points="1095,300 1245,300 1245,150 1455,150 1455,300" stroke="#43a047" stroke-width="3" fill="none"/>
+  <text x="1145" y="340" class="small bit">50 µs</text>
+  <text x="1320" y="120" class="small bit">70 µs</text>
+
+  <!-- Arrow and label below Bit 1 -->
+  <line x1="1095" y1="420" x2="1455" y2="420" class="arrow"/>
+  <text x="1205" y="450" class="small bit">Bit value: "1"</text>
+
+  <!-- Continuation: ... -->
+  <text x="1500" y="200" class="large bit">...</text>
+
+  <!-- End signal: High → Low 50µs → High -->
+<!-- End signal: High → Low 50µs → High -->
+<polyline points="1580,150 1610,150 1610,300 1760,300 1760,150 1790,150 1850,150" stroke="#1e88e5" stroke-width="3" fill="none"/>
+<text x="1610" y="340" class="small sensor">End (50 µs LOW)</text>
+<text x="1795" y="120" class="small sensor">Idle HIGH</text>
+
+</svg>
+
