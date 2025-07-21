@@ -1,0 +1,21 @@
+[book]
+title = "Rust Embedded Drivers Book"
+authors = []
+language = "en"
+multilingual = false
+src = "src"
+
+[output.html]
+git-repository-url = "https://github.com/ImplFerris/red-book"
+cname = "mb2.implrust.com"
+preferred-dark-theme = "ayu"
+preferred-light-theme = "rust"
+default-theme = "light"
+mathjax-support = true
+
+# [output.html.playground]
+# editable = true
+
+[output.html.fold]
+enable = true
+level = 1     # the depth to start folding
