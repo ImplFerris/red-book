@@ -65,3 +65,8 @@ By the end of this tutorial, we will have the following file structure for our D
     ├── error.rs
     └── lib.rs
 ```
+
+
+## Completed Project
+
+If you ever get stuck or feel unsure about how everything fits together, you can refer to the complete working project I have created for this chapter. You'll find it on GitHub at [implferris/dht22-sensor](https://github.com/implferris/dht22-sensor). It contains all the source code, tests, and structure exactly as discussed here. Feel free to explore it and compare with your own implementation.
