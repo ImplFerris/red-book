@@ -14,8 +14,6 @@ Here are some key features of the DHT22:
 
 In this chapter, we will learn how to write a driver for this sensor. I chose the DHT22 because it uses a simple communication method, making it suitable for learning how to write embedded Rust drivers. It is also low-cost and widely available.
 
-Another benefit is that the DHT22 is supported by the Wokwi simulator. That means once we write the driver, we can test it in a virtual environment without needing real hardware.  But I still recommend running it on real hardware if you can - just to get the actual feel of working with a physical device.
-
 > Note: While we're building our own driver from scratch for educational purposes, there are already existing crates available for the DHT22 sensor, such as dht-sensor. You can also explore those crates.
 
 ### DHT22 Sensor and Module

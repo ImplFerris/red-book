@@ -10,9 +10,9 @@ This book is slightly more advanced than the others in the "impl Rust for" serie
 
 If you're a beginner and haven't read the other books yet, you may want to start with one of the following:
 
-- [esp32.implrust.com](https://esp32.implrust.com) — *impl Rust for ESP32* (uses the ESP32 Devkit v1)  
-- [mb2.implrust.com](https://mb2.implrust.com) — *impl Rust for micro:bit v2*  
-- [pico.implrust.com](https://pico.implrust.com) — *impl Rust for Raspberry Pi Pico (RP2350)*
+- [esp32.implrust.com](https://esp32.implrust.com) - *impl Rust for ESP32* (uses the ESP32 Devkit v1)  
+- [mb2.implrust.com](https://mb2.implrust.com) - *impl Rust for micro:bit v2*  
+- [pico.implrust.com](https://pico.implrust.com) - *impl Rust for Raspberry Pi Pico (RP2350)*
 
 ## How to read?
 

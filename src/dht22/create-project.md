@@ -19,16 +19,49 @@ To make our library compatible with embedded systems that don't have access to t
 Open the src/lib.rs file, remove all lines and add the following line at the very top:
 
 ```rust
-#![no_std]
+#![cfg_attr(not(test), no_std)]
 ```
 
-This tells the Rust compiler that our crate should not link against the standard library. As a result, we won't be able to use any features from the std crate - only what's available in core.
+This tells the Rust compiler to avoid linking the standard library when we are not running tests. Instead, the crate will rely only on the core crate, which provides essential Rust features like basic types and operations. As a result, we won't be able to use any features from the std crate - only what's available in core.
+
+The cfg_attr is a conditional attribute. It means "if not testing, then apply no_std." This way, we can still write normal unit tests using std, but the compiled library will work in no_std environments.
 
 ## Add Dependencies
 
 Next, open Cargo.toml and add the embedded-hal crate under [dependencies]. This allows your driver to work with any compatible GPIO or delay implementation:
 
-```
+```toml
 [dependencies]
 embedded-hal = "1.0.0"
+```
+
+### Optional: defmt Logging Support
+
+We also add optional defmt support so that our driver can integrate with the defmt logging ecosystem.
+
+To enable this, users must explicitly activate the defmt feature.
+
+Add the following to your Cargo.toml:
+
+## Defmt
+```toml
+defmt = { version = "1.0.1", optional = true }
+
+[features]
+defmt = ["dep:defmt"]
+```
+
+## Goal
+
+By the end of this tutorial, we will have the following file structure for our DHT22 driver. While this is a relatively simple driver and could be implemented entirely in lib.rs, we prefer a more modular structure for clarity and maintainability.
+
+> The lib.rs file is the main entry point of a Rust library crate. When someone adds your crate as a dependency and uses use your_crate::..., the items they access come from what you expose in lib.rs. In our case, lib.rs will include and publicly re-export the dht22 module and the error module, making them accessible to users of the crate. Think of it as the public API surface of your driver.
+
+```sh
+.
+├── Cargo.toml
+└── src
+    ├── dht22.rs
+    ├── error.rs
+    └── lib.rs
 ```
