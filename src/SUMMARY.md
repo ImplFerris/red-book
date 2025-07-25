@@ -15,3 +15,4 @@
         - [Read Byte](./dht22/reading-data/read-byte.md)
         - [Data Parser](./dht22/reading-data/data-parser.md)
         - [Final Boss](./dht22/reading-data/read-function.md)
+    - [Using with ESP32](./dht22/using-with-esp32.md)

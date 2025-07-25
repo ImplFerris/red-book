@@ -19,9 +19,10 @@ In this chapter, we will learn how to write a driver for this sensor. I chose th
 ### DHT22 Sensor and Module
 The DHT22 is available in two forms: the bare sensor and a ready-to-use module. The bare sensor comes in a 4-pin package, but only three of those pins are needed. The module version is typically provided with just three pins, which are the ones actually needed for operation.
 
-One key difference is that the module includes an onboard pull-up resistor and a filtering capacitor. These help with signal stability and clean communication. The bare sensor does not include these components, so you will need to add them externally if you use the raw 4-pin sensor in your own circuit.
-
 1. **VCC** - Connects to 3.3V or 5V
 2. **Data** - Signal pin connected to a GPIO (pull-up resistor is already present on the board)
 3. **GND** - Ground
 
+One important difference between the DHT22 module and the bare sensor is the presence of an onboard pull-up resistor. On the module, this resistor is already connected between the data line and VCC, ensuring that the line reliably returns to a HIGH state when neither the microcontroller nor the sensor is actively pulling it LOW. This is essential for correct timing and stable communication.
+
+If you're using the raw 4-pin DHT22 sensor (without a breakout board), it does not include a pull-up resistor. In that case, you'll need to add an external resistor (typically 10kΩ) between the data pin and VCC to ensure proper operation.
