@@ -16,3 +16,5 @@
         - [Data Parser](./dht22/reading-data/data-parser.md)
         - [Final Boss](./dht22/reading-data/read-function.md)
     - [Using with ESP32](./dht22/using-with-esp32.md)
+- [MAX7219 LED Display](./max7219/index.md)
+    - [Why MAX7219](./max7219/advantages.md)

@@ -1,0 +1,214 @@
+<svg width="550" height="550" xmlns="http://www.w3.org/2000/svg" font-family="monospace" viewBox="0 0 320 300">
+<!--
+  Source: https://github.com/ImplFerris/ImplFerris
+  Copyright (c) 2025 implrust.com
+  Licensed under CC BY-SA 4.0
+-->
+  <style>
+    .row-line { stroke: #595757; stroke-width: 2; }
+    .col-line { stroke: #595757; stroke-width: 2; }
+    .led { fill: #595757; }
+    .label { fill: white; font-size: 10px; font-family: monospace; }
+
+    /* Active LEDs */
+    #led00 { animation: light0 3.9s infinite; }
+    #led11 { animation: light1 3.9s infinite; }
+    #led22 { animation: light2 3.9s infinite; }
+
+    /* Highlight active rows */
+    #r0 { animation: rowRed0 3.9s infinite; }
+    #r1 { animation: rowRed1 3.9s infinite; }
+    #r2 { animation: rowRed2 3.9s infinite; }
+
+    /* Highlight active columns */
+    #c0 { animation: colGreen0 3.9s infinite; }
+    #c1 { animation: colGreen1 3.9s infinite; }
+    #c2 { animation: colGreen2 3.9s infinite; }
+
+    @keyframes light0 {
+      0%, 20% { fill: #FF0800; }
+      33.33%, 100% { fill: #595757; }
+    }
+
+    @keyframes light1 {
+      0%, 33.33% { fill: #595757; }
+      33.34%, 53.33% { fill: #FF0800; }
+      66.66%, 100% { fill: gray; }
+    }
+
+    @keyframes light2 {
+      0%, 66.66% { fill: #595757; }
+      66.67%, 86.66% { fill: #FF0800; }
+      100% { fill: #595757; }
+    }
+
+    @keyframes rowRed0 {
+      0%, 20% { stroke: red; }
+      33.33%, 100% { stroke: #595757; }
+    }
+
+    @keyframes rowRed1 {
+      0%, 33.33% { stroke: #595757; }
+      33.34%, 53.33% { stroke: red; }
+      66.66%, 100% { stroke: #595757; }
+    }
+
+    @keyframes rowRed2 {
+      0%, 66.66% { stroke: #595757; }
+      66.67%, 86.66% { stroke: red; }
+      100% { stroke: #595757; }
+    }
+
+    @keyframes colGreen0 {
+      0%, 20% { stroke: blue; }
+      33.33%, 100% { stroke: #595757; }
+    }
+
+    @keyframes colGreen1 {
+      0%, 33.33% { stroke: #595757; }
+      33.34%, 53.33% { stroke: blue; }
+      66.66%, 100% { stroke: #595757; }
+    }
+
+    @keyframes colGreen2 {
+      0%, 66.66% { stroke: #595757; }
+      66.67%, 86.66% { stroke: blue; }
+      100% { stroke: #595757; }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="black"/>
+
+  <!-- Row labels -->
+  <g class="label" text-anchor="end">
+    <text x="35" y="52">R0</text>
+    <text x="35" y="83">R1</text>
+    <text x="35" y="112">R2</text>
+    <text x="35" y="144">R3</text>
+    <text x="35" y="174">R4</text>
+    <text x="35" y="204">R5</text>
+    <text x="35" y="234">R6</text>
+    <text x="35" y="264">R7</text>
+  </g>
+
+  <!-- Column labels -->
+  <g class="label" text-anchor="middle">
+    <text x="60" y="30">C0</text>
+    <text x="90" y="30">C1</text>
+    <text x="120" y="30">C2</text>
+    <text x="150" y="30">C3</text>
+    <text x="180" y="30">C4</text>
+    <text x="210" y="30">C5</text>
+    <text x="240" y="30">C6</text>
+    <text x="270" y="30">C7</text>
+  </g>
+
+  <!-- Column lines -->
+  <g>
+    <line id="c0" x1="60" x2="60" y1="40" y2="270" class="col-line"/>
+    <line id="c1" x1="90" x2="90" y1="40" y2="270" class="col-line"/>
+    <line id="c2" x1="120" x2="120" y1="40" y2="270" class="col-line"/>
+    <line id="c3" x1="150" x2="150" y1="40" y2="270" class="col-line"/>
+    <line id="c4" x1="180" x2="180" y1="40" y2="270" class="col-line"/>
+    <line id="c5" x1="210" x2="210" y1="40" y2="270" class="col-line"/>
+    <line id="c6" x1="240" x2="240" y1="40" y2="270" class="col-line"/>
+    <line id="c7" x1="270" x2="270" y1="40" y2="270" class="col-line"/>
+  </g>
+
+  <!-- Row lines -->
+  <g>
+    <line id="r0" x1="40" x2="290" y1="50" y2="50" class="row-line"/>
+    <line id="r1" x1="40" x2="290" y1="80" y2="80" class="row-line"/>
+    <line id="r2" x1="40" x2="290" y1="110" y2="110" class="row-line"/>
+    <line id="r3" x1="40" x2="290" y1="140" y2="140" class="row-line"/>
+    <line id="r4" x1="40" x2="290" y1="170" y2="170" class="row-line"/>
+    <line id="r5" x1="40" x2="290" y1="200" y2="200" class="row-line"/>
+    <line id="r6" x1="40" x2="290" y1="230" y2="230" class="row-line"/>
+    <line id="r7" x1="40" x2="290" y1="260" y2="260" class="row-line"/>
+  </g>
+
+  <!-- LEDs at all intersections -->
+  <g>
+    <!-- R0 -->
+    <circle id="led00" class="led" cx="60" cy="50" r="6"/>
+    <circle id="led01" class="led" cx="90" cy="50" r="6"/>
+    <circle id="led02" class="led" cx="120" cy="50" r="6"/>
+    <circle class="led" cx="150" cy="50" r="6"/>
+    <circle class="led" cx="180" cy="50" r="6"/>
+    <circle class="led" cx="210" cy="50" r="6"/>
+    <circle class="led" cx="240" cy="50" r="6"/>
+    <circle class="led" cx="270" cy="50" r="6"/>
+
+    <!-- R1 -->
+    <circle id="led10" class="led" cx="60" cy="80" r="6"/>
+    <circle id="led11" class="led" cx="90" cy="80" r="6"/>
+    <circle class="led" cx="120" cy="80" r="6"/>
+    <circle class="led" cx="150" cy="80" r="6"/>
+    <circle class="led" cx="180" cy="80" r="6"/>
+    <circle class="led" cx="210" cy="80" r="6"/>
+    <circle class="led" cx="240" cy="80" r="6"/>
+    <circle class="led" cx="270" cy="80" r="6"/>
+
+    <!-- R2 -->
+    <circle id="led20" class="led" cx="60" cy="110" r="6"/>
+    <circle id="led21" class="led" cx="90" cy="110" r="6"/>
+    <circle id="led22" class="led" cx="120" cy="110" r="6"/>
+    <circle class="led" cx="150" cy="110" r="6"/>
+    <circle class="led" cx="180" cy="110" r="6"/>
+    <circle class="led" cx="210" cy="110" r="6"/>
+    <circle class="led" cx="240" cy="110" r="6"/>
+    <circle class="led" cx="270" cy="110" r="6"/>
+
+    <!-- R3 -->
+    <circle class="led" cx="60" cy="140" r="6"/>
+    <circle class="led" cx="90" cy="140" r="6"/>
+    <circle class="led" cx="120" cy="140" r="6"/>
+    <circle class="led" cx="150" cy="140" r="6"/>
+    <circle class="led" cx="180" cy="140" r="6"/>
+    <circle class="led" cx="210" cy="140" r="6"/>
+    <circle class="led" cx="240" cy="140" r="6"/>
+    <circle class="led" cx="270" cy="140" r="6"/>
+
+    <!-- R4 -->
+    <circle class="led" cx="60" cy="170" r="6"/>
+    <circle class="led" cx="90" cy="170" r="6"/>
+    <circle class="led" cx="120" cy="170" r="6"/>
+    <circle class="led" cx="150" cy="170" r="6"/>
+    <circle class="led" cx="180" cy="170" r="6"/>
+    <circle class="led" cx="210" cy="170" r="6"/>
+    <circle class="led" cx="240" cy="170" r="6"/>
+    <circle class="led" cx="270" cy="170" r="6"/>
+
+    <!-- R5 -->
+    <circle class="led" cx="60" cy="200" r="6"/>
+    <circle class="led" cx="90" cy="200" r="6"/>
+    <circle class="led" cx="120" cy="200" r="6"/>
+    <circle class="led" cx="150" cy="200" r="6"/>
+    <circle class="led" cx="180" cy="200" r="6"/>
+    <circle class="led" cx="210" cy="200" r="6"/>
+    <circle class="led" cx="240" cy="200" r="6"/>
+    <circle class="led" cx="270" cy="200" r="6"/>
+
+    <!-- R6 -->
+    <circle class="led" cx="60" cy="230" r="6"/>
+    <circle class="led" cx="90" cy="230" r="6"/>
+    <circle class="led" cx="120" cy="230" r="6"/>
+    <circle class="led" cx="150" cy="230" r="6"/>
+    <circle class="led" cx="180" cy="230" r="6"/>
+    <circle class="led" cx="210" cy="230" r="6"/>
+    <circle class="led" cx="240" cy="230" r="6"/>
+    <circle class="led" cx="270" cy="230" r="6"/>
+
+    <!-- R7 -->
+    <circle class="led" cx="60" cy="260" r="6"/>
+    <circle class="led" cx="90" cy="260" r="6"/>
+    <circle class="led" cx="120" cy="260" r="6"/>
+    <circle class="led" cx="150" cy="260" r="6"/>
+    <circle class="led" cx="180" cy="260" r="6"/>
+    <circle class="led" cx="210" cy="260" r="6"/>
+    <circle class="led" cx="240" cy="260" r="6"/>
+    <circle class="led" cx="270" cy="260" r="6"/>
+  </g>
+</svg>
+
