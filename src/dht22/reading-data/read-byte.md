@@ -16,7 +16,7 @@ Now let's implement the read_byte function. This function reads 8 bits one after
     Ok(byte)
 }
 ```
-We start by initializing the byte to 0. Then, in a loop that runs 8 times (once for each bit), we calculate a [bit mask](./read-byte.html#how-read_byte-builds-a-byte-from-bits) for the current position using 1 << (7 - i) so that the first bit read goes into the highest bit position.
+We start by initializing the byte to 0. Then, in a loop that runs 8 times (once for each bit), we calculate a [bit mask](./read-byte.html#optional-how-read_byte-uses-bitmasks-to-build-a-byte) for the current position using 1 << (7 - i) so that the first bit read goes into the highest bit position.
 
 For each iteration, we call read_bit() to get the next bit from the sensor. If the bit is 1, we use the bitwise OR operation to set the corresponding bit in the byte. If it is 0, we leave the bit as-is (it's already 0). After all 8 bits are read and assembled, the final byte is returned. This approach matches how the DHT22 sends data: one bit at a time, from the most significant bit to the least significant bit.
 
@@ -73,9 +73,9 @@ We check that the byte returned by read_byte() is exactly 0b10111010, the same o
 
 ---
 
-## How read_byte Builds a Byte from Bits
+## [Optional] How read_byte Uses Bitmasks to Build a Byte
 
-In case you're not sure how the bitmask and the whole loop construct the byte, i am adding this appendix explanation for you.
+If you're not sure how the bitmask and the loop work together to build the byte, this appendix will explain it step by step. If you already know this, feel free to skip this.
 
 The read_byte function reads 8 bits from the DHT22 sensor and builds a u8 by placing each bit in its correct position. It starts from the most significant bit (bit 7) and moves down to the least significant bit (bit 0).
 
@@ -85,16 +85,18 @@ We will assume the bits received from the sensor are: 1, 0, 1, 1, 1, 0, 1, 0 (wh
 
 We start with a byte set to all zeros:
 ```rust
-let mut byte: u8 = 0; //0b00000000
+let mut byte: u8 = 0; //0b00000000 in Rust binary notation
 ```
 
-Now, for each bit we read, we calculate a bit mask by shifting 1 to the left by (7 - i) positions. This places the 1 in the correct position for that bit inside the final byte.
+Now, for each bit we read, we calculate a bit mask by shifting 1 to the left by (7 - i) positions. This places the "1" in the correct position for that bit inside the final byte.
 
 Let's go step by step:
 
-**Iteration 0: Received bit = 1**
+#### Iteration 0: Received bit = 1
 
-We shift 1 by 7 places to the left to reach the most significant bit. Since bit is 1, we set that bit using |= operator.
+We shift 1 by 7 places to the left to reach the most significant bit. Since, we received the value "1" from the sensor for this position, so we enter the `if` block and use the OR (|) operator to set that corresponding bit in the byte.
+
+The current value of the "byte" is 0b00000000. When we apply the OR operation with the bit mask, the result becomes 0b10000000.
 
 ```rust
 i = 0: bit = 1
@@ -102,17 +104,27 @@ bit_mask = 1 << (7 - 0) = 0b10000000
 byte |= 0b10000000 => 0b10000000
 ```
 
-**Iteration 1: Received bit = 0**
+Here's how the OR operation sets the bit in the correct position:
 
-This bit is 0, so it won't go into the if condition and we skip updating the byte.
-```rust
+| Bit Position | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+| ------------ | - | - | - | - | - | - | - | - |
+| `byte`       | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| `bit_mask`   | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| `result`     | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+
+#### Iteration 1: Received bit = 0
+
+We received the bit value "0" from the sensor. Since it's already zero, there's no need to update the byte. The `if` block is skipped, and the byte remains unchanged.
+
+```text
 i = 1: bit = 0
 (skip update since bit is already 0)
 ```
 
-**Iteration 2: Received bit = 1**
+#### Iteration 2: Received bit = 1
 
-We shift 1 by 5 places. Since the bit is 1, we set bit 5 using the mask.
+We shift 1 by 5 places to create a mask for bit 5. Since we received a 1, we update the byte using the OR operation. The current byte is 0b10000000, and after the `OR` operation, it becomes 0b10100000.
 
 ```rust
 i = 2: bit = 1
@@ -120,7 +132,17 @@ bit_mask = 1 << (7 - 2) = 0b00100000
 byte |= 0b00100000 => 0b10100000
 ```
 
-**Iteration 3: Received bit = 1**
+Bitwise OR Operation Breakdown:
+
+```text
+  10000000
+| 00100000
+------------
+  10100000
+```
+
+
+#### Iteration 3: Received bit = 1
 
 We shift 1 by 4 places. The bit is 1, so we set bit 4.
 
@@ -130,9 +152,12 @@ bit_mask = 1 << (7 - 3) = 0b00010000
 byte |= 0b00010000 => 0b10110000
 ```
 
-**Iteration 4: Received bit = 1**
+This is the same as the previous bitwise OR operations we did. To think of it simply, we are turning bit 4 to 1 without affecting the other bits.
 
-We shift 1 by 3 places. Bit is 1, so we update bit 3.
+
+#### Iteration 4: Received bit = 1
+
+Same as before, this sets the bit at position 3 to the value 1. Other bits remain unchanged.
 
 ```rust
 i = 4: bit = 1
@@ -140,7 +165,7 @@ bit_mask = 1 << (7 - 4) = 0b00001000
 byte |= 0b00001000 => 0b10111000
 ```
 
-**Iteration 5: Received bit = 0**
+#### Iteration 5: Received bit = 0
 
 This bit is 0, so no update is made.
 
@@ -149,24 +174,23 @@ i = 5: bit = 0
 (skip update since bit is 0)
 ```
 
-**Iteration 6: Received bit = 1**
+#### Iteration 6: Received bit = 1
 
-We shift 1 by 1 place to target bit 1. Bit is 1, so we update bit 1.
+Same as before, this sets the bit at position 1 to the value 1. Other bits remain unchanged.
 
 ```rust
 i = 6: bit = 1
 bit_mask = 1 << (7 - 6) = 0b00000010
 byte |= 0b00000010 => 0b10111010
-
 ```
 
-**Iteration 7: Received bit = 0**
+#### Iteration 7: Received bit = 0
 
-Bit is 0, so the loop skips the update.
+Since we received bit value "0", so the we wont update the byte.
 
 ```rust
 i = 7: bit = 0
 (skip update since bit is 0)
 ```
 
-The final result after processing all 8 bits is 0b10111010. This binary value is equal to 0xBA in hexadecimal and 186 in decimal. So, the final byte returned by the function is 186. This example shows how each bit is positioned using bitmasks and combined using |= to gradually build up the final value.
+The final result after processing all 8 bits is `0b10111010`. This binary value is equal to 0xBA in hexadecimal and 186 in decimal.
