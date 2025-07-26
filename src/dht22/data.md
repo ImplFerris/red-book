@@ -27,6 +27,20 @@ In this example, the humidity is 40.0%, the temperature is 25.0°C, and the chec
 
 Since the checksum is only one byte (8 bits), we only care about the lower 8 bits of this sum. To extract them, we apply a bitwise AND with 0xFF, which keeps just the least significant byte: 0x18B & 0xFF = 0x8B. This result matches the checksum sent by the sensor; on the microcontroller side(in our driver), we can perform this check to ensure the data was received correctly.
 
+In Rust, instead of summing the values as a larger type like u16 and then applying a bitwise AND with 0xFF, we can just use `wrapping_add` function, which automatically keeps the result within 8 bits by discarding any overflow. Since our incoming data is already u8, using wrapping_add is more efficient and better suited for our case.
+
+For example:
+```rust
+fn main() {
+    let data: [u8; 4] = [0x01, 0x90, 0x00, 0xFA];
+    let expected_checksum: u8 = 0x8B;
+
+    let calculated_checksum = data.iter().fold(0u8, |sum, v| sum.wrapping_add(*v));
+    println!("calculated checksum: 0x{:02X}", calculated_checksum);
+    println!("is valid: {}", expected_checksum == calculated_checksum);
+}
+```
+
 ## Handling Negative Temperatures
 
 The DHT22 encodes negative temperatures using the most significant bit (MSB) of the 16-bit temperature value as a sign bit. If this bit is set (i.e., bit 15 of the 16-bit value is `1`), the temperature is negative. To extract the correct value, you must first detect the sign, then mask off the sign bit and apply the negative sign after conversion.
