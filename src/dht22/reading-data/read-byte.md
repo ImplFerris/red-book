@@ -16,7 +16,7 @@ Now let's implement the read_byte function. This function reads 8 bits one after
     Ok(byte)
 }
 ```
-We start by initializing the byte to 0. Then, in a loop that runs 8 times (once for each bit), we calculate a [bit mask](./#how-read_byte-builds-a-byte-from-bits) for the current position using 1 << (7 - i) so that the first bit read goes into the highest bit position.
+We start by initializing the byte to 0. Then, in a loop that runs 8 times (once for each bit), we calculate a [bit mask](./read-byte.html#how-read_byte-builds-a-byte-from-bits) for the current position using 1 << (7 - i) so that the first bit read goes into the highest bit position.
 
 For each iteration, we call read_bit() to get the next bit from the sensor. If the bit is 1, we use the bitwise OR operation to set the corresponding bit in the byte. If it is 0, we leave the bit as-is (it's already 0). After all 8 bits are read and assembled, the final byte is returned. This approach matches how the DHT22 sends data: one bit at a time, from the most significant bit to the least significant bit.
 
