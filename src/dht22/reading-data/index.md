@@ -18,7 +18,7 @@ We will not define the read function yet. We will define the dependent functions
  
 ## Start Sequence
 
-Before the sensor sends any data, the microcontroller must initiate the communication by sending a start signal. This is done by pulling the data line low for at least 1 ms, then pulling it high again and waiting briefly(20-40 us). After that, the DHT22 will respond with a specific low-high pattern, confirming it's ready to send data.
+Before the sensor sends any data, the microcontroller must initiate the communication by sending a start signal. This is done by pulling the data line low for at least 1 ms, then releasing the line so it returns to a high state, and waiting briefly(20-40 us). After that, the DHT22 will respond with a specific low-high pattern, confirming it's ready to send data.
 
 Here's how we implement that logic in the start() function:
 
