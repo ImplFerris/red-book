@@ -61,3 +61,42 @@ For reference, here's the structure of my full crate:
         ├── fonts.rs
         └── mod.rs
 ```
+
+## Creating the Module Structure for Our Driver
+
+We will set up the basic folder and file structure.   We are only setting up the structure at this stage. We will add the actual code in the later sections when we start implementing our driver functionality.
+
+Inside the src folder, create the following:
+
+```sh
+driver/max7219.rs
+driver/mod.rs
+registers.rs
+error.rs
+```
+
+Add the following to `driver/mod.rs` file:
+
+```rust
+mod max7219; 
+```
+
+Here we have declared the max7219 module as private, meaning it can only be accessed within the driver module. 
+
+You might wonder - if it is private, how will we use it outside?
+
+Later, we will create a main struct for our driver called "Max7219" and export only that struct publicly. This approach keeps our internal code hidden and presents a clean public API.
+
+You do not need to strictly follow this approach. If you prefer, you could also make the module public right away by writing `pub mod max7219` instead.
+
+In Rust, the lib.rs file is the entry point for a library.
+ 
+We will declare our modules here:
+
+```rust
+pub mod driver;
+pub mod error;
+pub mod registers;
+```
+
+That is all folks! The driver is done! Okay, not really - we just created the structure. We will add the actual code in the next section.
