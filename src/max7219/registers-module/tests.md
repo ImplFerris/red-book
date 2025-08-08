@@ -22,24 +22,6 @@ mod tests {
     }
 
     #[test]
-    fn test_try_digit_valid() {
-        assert_eq!(Register::try_digit(0), Ok(Register::Digit0));
-        assert_eq!(Register::try_digit(1), Ok(Register::Digit1));
-        assert_eq!(Register::try_digit(2), Ok(Register::Digit2));
-        assert_eq!(Register::try_digit(3), Ok(Register::Digit3));
-        assert_eq!(Register::try_digit(4), Ok(Register::Digit4));
-        assert_eq!(Register::try_digit(5), Ok(Register::Digit5));
-        assert_eq!(Register::try_digit(6), Ok(Register::Digit6));
-        assert_eq!(Register::try_digit(7), Ok(Register::Digit7));
-    }
-
-    #[test]
-    fn test_try_digit_invalid() {
-        assert_eq!(Register::try_digit(8), Err(Error::InvalidDigit));
-        assert_eq!(Register::try_digit(255), Err(Error::InvalidDigit));
-    }
-
-    #[test]
     fn test_digits_iterator() {
         let expected = [
             Register::Digit0,
