@@ -1,0 +1,79 @@
+<svg width="320" height="320" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: black; }
+    .seg { fill: #CCC; stroke: none; }
+    .label { fill: white; font-size: 12px; font-family: monospace; }
+    .pin-line { stroke: white; stroke-width: 1; }
+    .seg-label { fill: white; font-size: 10px; font-family: monospace; }
+  </style>
+
+  <!-- Background -->
+  <rect class="bg" width="100%" height="100%" />
+
+  <!-- Chip Box -->
+  <rect x="70" y="20" width="180" height="260" stroke="white" stroke-width="2" fill="none" />
+
+  <!-- Segment A -->
+  <polygon class="seg" points="115,50 120,45 180,45 185,50 180,55 120,55" />
+  <text x="145" y="40" class="seg-label">A</text>
+
+  <!-- Segment B -->
+  <polygon class="seg" style="fill:red;" points="185,55 190,60 190,120 185,125 180,120 180,60" />
+  <text x="193" y="95" class="seg-label">B</text>
+
+  <!-- Segment C -->
+  <polygon class="seg" style="fill:red;" points="185,145 190,150 190,210 185,215 180,210 180,150" />
+  <text x="193" y="190" class="seg-label">C</text>
+
+  <!-- Segment D -->
+  <polygon class="seg" points="115,220 120,215 180,215 185,220 180,225 120,225" />
+  <text x="145" y="242" class="seg-label">D</text>
+
+  <!-- Segment E -->
+  <polygon class="seg" points="110,145 115,150 115,210 110,215 105,210 105,150" />
+  <text x="90" y="190" class="seg-label">E</text>
+
+  <!-- Segment F -->
+  <polygon class="seg" points="110,55 115,60 115,120 110,125 105,120 105,60" />
+  <text x="90" y="95" class="seg-label">F</text>
+
+  <!-- Segment G (shifted 2px left) -->
+  <polygon class="seg" points="113,135 118,130 178,130 183,135 178,140 118,140" />
+  <text x="143" y="125" class="seg-label">G</text>
+
+  <!-- Decimal Point (DP) -->
+  <circle cx="215" cy="255" r="5" fill="lime" />
+  <text x="222" y="260" class="seg-label">DP</text>
+
+  <!-- Left-side pins -->
+  <line x1="70" y1="40" x2="50" y2="40" class="pin-line" />
+  <text x="30" y="44" class="label">A</text>
+
+  <line x1="70" y1="70" x2="50" y2="70" class="pin-line" />
+  <text x="30" y="74" class="label">B</text>
+
+  <line x1="70" y1="100" x2="50" y2="100" class="pin-line" />
+  <text x="30" y="104" class="label">C</text>
+
+  <line x1="70" y1="130" x2="50" y2="130" class="pin-line" />
+  <text x="30" y="134" class="label">D</text>
+
+  <line x1="70" y1="160" x2="50" y2="160" class="pin-line" />
+  <text x="30" y="164" class="label">E</text>
+
+  <line x1="70" y1="190" x2="50" y2="190" class="pin-line" />
+  <text x="30" y="194" class="label">F</text>
+
+  <line x1="70" y1="220" x2="50" y2="220" class="pin-line" />
+  <text x="30" y="224" class="label">G</text>
+
+  <line x1="70" y1="250" x2="50" y2="250" class="pin-line" />
+  <text x="20" y="254" class="label">DP</text>
+
+  <!-- Common cathode pin (top center) -->
+  <line x1="160" y1="20" x2="160" y2="0" class="pin-line" />
+  <text x="165" y="13" class="label">Common GND</text>
+</svg>
+
+
+

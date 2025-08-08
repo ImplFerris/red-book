@@ -37,7 +37,7 @@ We start by setting row R0 high and column C0 low, which lights up the LED at th
 
 <img style="display: block; margin: auto;" alt="Multiplexing Dot Matrix Display" src="./images/multiplexing-dot-matrix-animation.svg"/>
 
-This is the basic idea of multiplexing. We light up one row at a time, very quickly, and update the columns for that row. Then we move to the next row, and so on. If we repeat this fast enough, our eyes cannot notice the flickering, and it looks like all LEDs are on at the same time.  It might sound a bit crazy if you're hearing it for the first time but it works.
+This is the basic idea of multiplexing. We light up one row at a time, very quickly, and update the columns for that row. Then we move to the next row, and so on. If we repeat this fast enough, our eyes cannot notice the flickering, and it looks like all LEDs are on at the same time.  This effect is called persistence of vision.  It might sound a bit crazy if you're hearing it for the first time but it works.
 
 ## The Problem with Doing It in Software
 
@@ -48,7 +48,10 @@ On top of that, you need to connect 8 row pins and 8 column pins, which means us
 ## The Solution: MAX7219
 This is where the MAX7219 comes in.
 
-The MAX7219 is a specialized chip that takes care of all the multiplexing in hardware. You just send it the data over SPI, and it does the rest. It automatically cycles through the rows, manages the column states, controls brightness, and refreshes the entire display at high speed. It also stores the current LED states in internal memory, so your microcontroller doesn't have to resend data constantly.
+The MAX7219 is a specialized chip that takes care of all the multiplexing in hardware. You just send the data over SPI, and it does the rest. It automatically cycles through the rows, manages the column states, controls brightness, and refreshes the entire display at high speed. It also stores the current LED states in internal memory, so your microcontroller doesn't have to resend data constantly.
 
 That's why we use the MAX7219. It does the hard part, so we don't have to.
 
+**MAX7219 Datasheet:**
+
+You can find the datasheet [here](https://www.analog.com/media/en/technical-documentation/data-sheets/max7219-max7221.pdf).
