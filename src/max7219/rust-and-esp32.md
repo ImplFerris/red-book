@@ -148,3 +148,6 @@ cd esp32-projects/non-async/max7219-ledmatrix
 
 This project includes Wokwi configuration, so you can test it with the MAX7219 LED matrix virtually, right inside VSCode using the Wokwi simulator. No physical hardware needed to get started. Just install the Wokwi extension for VSCode and run the project to see the LED matrix in action. For details, visit [https://docs.wokwi.com/vscode/getting-started](https://docs.wokwi.com/vscode/getting-started).
 
+<img style="display: block; margin: auto;" alt="MAX7219 Dot Matrix Display with ESP32 in Vscode Wokwi simulator" src="./images/max7219-esp32-rust-wokwi-simulator.png"/>
+
+

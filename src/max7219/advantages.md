@@ -12,28 +12,29 @@ The answer is multiplexing
 
 ## Multiplexing
 
-Instead of wiring each LED separately, we organize the 64 LEDs into a grid: 8 rows and 8 columns. Each LED sits at the intersection of a row and a column.
+Instead of wiring each LED separately, we arrange the 64 LEDs into a grid: 8 rows and 8 columns. Each LED sits at the intersection of a row and a column.
 
-All the anodes (positive sides) of LEDs in a row are connected together. All the cathodes (negative sides) of LEDs in a column are connected together.
+All the cathodes (negative sides) of LEDs in a row are connected together. All the anodes (positive sides) of LEDs in a column are connected together.
 
-Now the question is, how do we light up an LED? Let's say we want to turn on the LED at second row (we'll call it R1) and second column (we'll call it C1). 
+Now the question is, how do we light up an LED? Let's say we want to turn on the LED at second row (we'll call it R2) and second column (we'll call it C2). 
 
 <img style="display: block; margin: auto;" alt="Multiplexing Dot Matrix Display" src="./images/mutiplexing-dot-matrix.svg"/>
 
-To turn on the LED at R1 and C1:
+To turn on the LED at R2 and C2:
 
-- We set R1 to high (logic 1) to supply voltage to the anode
+- We set the row line R2 to low (logic 0) to sink current from the cathode
 
-- We set C1 to low (logic 0) to sink current from the cathode
+- We set the column line C2 to high (logic 1) to supply voltage to the anode
 
 This creates a voltage difference across that one LED, and only that LED will turn on. The others will remain off because either their row is not active or their column is not selected.
 
+> ⚡ NOTE: Some LED matrices work the other way around - with anode lines connected to the rows and cathode lines connected to the columns. I chose to explain it this way because the LED matrix (1088AS) we'll use for testing is arranged like this.
+
 ## What About Multiple LEDs?
 
-Now suppose we want to light up a diagonal: R0-C0, R1-C1, and R2-C2. If we try to activate all those rows and columns at once, unwanted current paths could cause other LEDs to glow. Instead, we turn on one row at a time:
+Now suppose we want to light up a diagonal: R1-C1, R2-C2, and R3-C3. If we try to activate all those rows and columns at once, unwanted current paths could cause other LEDs to glow. 
 
-Instead, we use time-division multiplexing:
-We start by setting row R0 high and column C0 low, which lights up the LED at their intersection. Then we turn off R0, set R1 high, and set C1 low. Now the LED at R1-C1 lights up. After that, we do the same for R2 and C2. One row at a time.
+Instead, we turn on one row at a time using time-division multiplexing.  We start by setting row R1 to low (logic 0) to sink current and set the columns so that only column C1 is high (logic 1) to supply voltage. This lights the LED at R1-C1. Then we set row R1 back to high (turn it off), set row R2 to low, and update the columns so that only column C2 is high. Now the LED at R2-C2 lights up. After that, we do the same for row R3 and column C3. One row at a time.
 
 <img style="display: block; margin: auto;" alt="Multiplexing Dot Matrix Display" src="./images/multiplexing-dot-matrix-animation.svg"/>
 

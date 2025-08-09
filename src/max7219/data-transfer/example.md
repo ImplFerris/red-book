@@ -6,6 +6,8 @@ Just like we turned the display on by writing to the Shutdown register, we can s
 
 In a 7-segment display, the digit registers `0x01` to `0x08` each control one digit. The value you send is a segment code that maps to segments A to G and the decimal point. For example, to show the number `5` on Digit 0 we send:
 
+> Note: If the MAX7219's Code B decode mode is enabled (in the Decode Mode register), you can send digit values (0-9) directly to the digit registers. Otherwise, you need to send the segment bit pattern manually.
+
 ```rust
 [0x01, 0x05]    // 16-bit value 0x0105 represented as a byte array (this is how we actually do it in the code)
 ```

@@ -16,14 +16,14 @@
     #led22 { animation: light2 3.9s infinite; }
 
     /* Highlight active rows */
-    #r0 { animation: rowRed0 3.9s infinite; }
-    #r1 { animation: rowRed1 3.9s infinite; }
-    #r2 { animation: rowRed2 3.9s infinite; }
+    #r1 { animation: rowRed0 3.9s infinite; }
+    #r2 { animation: rowRed1 3.9s infinite; }
+    #r3 { animation: rowRed2 3.9s infinite; }
 
     /* Highlight active columns */
-    #c0 { animation: colGreen0 3.9s infinite; }
-    #c1 { animation: colGreen1 3.9s infinite; }
-    #c2 { animation: colGreen2 3.9s infinite; }
+    #c1 { animation: colGreen0 3.9s infinite; }
+    #c2 { animation: colGreen1 3.9s infinite; }
+    #c3 { animation: colGreen2 3.9s infinite; }
 
     @keyframes light0 {
       0%, 20% { fill: #FF0800; }
@@ -82,55 +82,55 @@
 
   <!-- Row labels -->
   <g class="label" text-anchor="end">
-    <text x="35" y="52">R0</text>
-    <text x="35" y="83">R1</text>
-    <text x="35" y="112">R2</text>
-    <text x="35" y="144">R3</text>
-    <text x="35" y="174">R4</text>
-    <text x="35" y="204">R5</text>
-    <text x="35" y="234">R6</text>
-    <text x="35" y="264">R7</text>
+    <text x="35" y="52">R1</text>
+    <text x="35" y="83">R2</text>
+    <text x="35" y="112">R3</text>
+    <text x="35" y="144">R4</text>
+    <text x="35" y="174">R5</text>
+    <text x="35" y="204">R6</text>
+    <text x="35" y="234">R7</text>
+    <text x="35" y="264">R8</text>
   </g>
 
   <!-- Column labels -->
   <g class="label" text-anchor="middle">
-    <text x="60" y="30">C0</text>
-    <text x="90" y="30">C1</text>
-    <text x="120" y="30">C2</text>
-    <text x="150" y="30">C3</text>
-    <text x="180" y="30">C4</text>
-    <text x="210" y="30">C5</text>
-    <text x="240" y="30">C6</text>
-    <text x="270" y="30">C7</text>
+    <text x="60" y="30">C1</text>
+    <text x="90" y="30">C2</text>
+    <text x="120" y="30">C3</text>
+    <text x="150" y="30">C4</text>
+    <text x="180" y="30">C5</text>
+    <text x="210" y="30">C6</text>
+    <text x="240" y="30">C7</text>
+    <text x="270" y="30">C8</text>
   </g>
 
   <!-- Column lines -->
   <g>
-    <line id="c0" x1="60" x2="60" y1="40" y2="270" class="col-line"/>
-    <line id="c1" x1="90" x2="90" y1="40" y2="270" class="col-line"/>
-    <line id="c2" x1="120" x2="120" y1="40" y2="270" class="col-line"/>
-    <line id="c3" x1="150" x2="150" y1="40" y2="270" class="col-line"/>
-    <line id="c4" x1="180" x2="180" y1="40" y2="270" class="col-line"/>
-    <line id="c5" x1="210" x2="210" y1="40" y2="270" class="col-line"/>
-    <line id="c6" x1="240" x2="240" y1="40" y2="270" class="col-line"/>
-    <line id="c7" x1="270" x2="270" y1="40" y2="270" class="col-line"/>
+    <line id="c1" x1="60" x2="60" y1="40" y2="270" class="col-line"/>
+    <line id="c2" x1="90" x2="90" y1="40" y2="270" class="col-line"/>
+    <line id="c3" x1="120" x2="120" y1="40" y2="270" class="col-line"/>
+    <line id="c4" x1="150" x2="150" y1="40" y2="270" class="col-line"/>
+    <line id="c5" x1="180" x2="180" y1="40" y2="270" class="col-line"/>
+    <line id="c6" x1="210" x2="210" y1="40" y2="270" class="col-line"/>
+    <line id="c7" x1="240" x2="240" y1="40" y2="270" class="col-line"/>
+    <line id="c8" x1="270" x2="270" y1="40" y2="270" class="col-line"/>
   </g>
 
   <!-- Row lines -->
   <g>
-    <line id="r0" x1="40" x2="290" y1="50" y2="50" class="row-line"/>
-    <line id="r1" x1="40" x2="290" y1="80" y2="80" class="row-line"/>
-    <line id="r2" x1="40" x2="290" y1="110" y2="110" class="row-line"/>
-    <line id="r3" x1="40" x2="290" y1="140" y2="140" class="row-line"/>
-    <line id="r4" x1="40" x2="290" y1="170" y2="170" class="row-line"/>
-    <line id="r5" x1="40" x2="290" y1="200" y2="200" class="row-line"/>
-    <line id="r6" x1="40" x2="290" y1="230" y2="230" class="row-line"/>
-    <line id="r7" x1="40" x2="290" y1="260" y2="260" class="row-line"/>
+    <line id="r1" x1="40" x2="290" y1="50" y2="50" class="row-line"/>
+    <line id="r2" x1="40" x2="290" y1="80" y2="80" class="row-line"/>
+    <line id="r3" x1="40" x2="290" y1="110" y2="110" class="row-line"/>
+    <line id="r4" x1="40" x2="290" y1="140" y2="140" class="row-line"/>
+    <line id="r5" x1="40" x2="290" y1="170" y2="170" class="row-line"/>
+    <line id="r6" x1="40" x2="290" y1="200" y2="200" class="row-line"/>
+    <line id="r7" x1="40" x2="290" y1="230" y2="230" class="row-line"/>
+    <line id="r8" x1="40" x2="290" y1="260" y2="260" class="row-line"/>
   </g>
 
   <!-- LEDs at all intersections -->
   <g>
-    <!-- R0 -->
+    <!-- R1 -->
     <circle id="led00" class="led" cx="60" cy="50" r="6"/>
     <circle id="led01" class="led" cx="90" cy="50" r="6"/>
     <circle id="led02" class="led" cx="120" cy="50" r="6"/>
@@ -140,7 +140,7 @@
     <circle class="led" cx="240" cy="50" r="6"/>
     <circle class="led" cx="270" cy="50" r="6"/>
 
-    <!-- R1 -->
+    <!-- R2 -->
     <circle id="led10" class="led" cx="60" cy="80" r="6"/>
     <circle id="led11" class="led" cx="90" cy="80" r="6"/>
     <circle class="led" cx="120" cy="80" r="6"/>
@@ -150,7 +150,7 @@
     <circle class="led" cx="240" cy="80" r="6"/>
     <circle class="led" cx="270" cy="80" r="6"/>
 
-    <!-- R2 -->
+    <!-- R3 -->
     <circle id="led20" class="led" cx="60" cy="110" r="6"/>
     <circle id="led21" class="led" cx="90" cy="110" r="6"/>
     <circle id="led22" class="led" cx="120" cy="110" r="6"/>
@@ -160,7 +160,7 @@
     <circle class="led" cx="240" cy="110" r="6"/>
     <circle class="led" cx="270" cy="110" r="6"/>
 
-    <!-- R3 -->
+    <!-- R4 -->
     <circle class="led" cx="60" cy="140" r="6"/>
     <circle class="led" cx="90" cy="140" r="6"/>
     <circle class="led" cx="120" cy="140" r="6"/>
@@ -170,7 +170,7 @@
     <circle class="led" cx="240" cy="140" r="6"/>
     <circle class="led" cx="270" cy="140" r="6"/>
 
-    <!-- R4 -->
+    <!-- R5 -->
     <circle class="led" cx="60" cy="170" r="6"/>
     <circle class="led" cx="90" cy="170" r="6"/>
     <circle class="led" cx="120" cy="170" r="6"/>
@@ -180,7 +180,7 @@
     <circle class="led" cx="240" cy="170" r="6"/>
     <circle class="led" cx="270" cy="170" r="6"/>
 
-    <!-- R5 -->
+    <!-- R6 -->
     <circle class="led" cx="60" cy="200" r="6"/>
     <circle class="led" cx="90" cy="200" r="6"/>
     <circle class="led" cx="120" cy="200" r="6"/>
@@ -190,7 +190,7 @@
     <circle class="led" cx="240" cy="200" r="6"/>
     <circle class="led" cx="270" cy="200" r="6"/>
 
-    <!-- R6 -->
+    <!-- R7 -->
     <circle class="led" cx="60" cy="230" r="6"/>
     <circle class="led" cx="90" cy="230" r="6"/>
     <circle class="led" cx="120" cy="230" r="6"/>
@@ -200,7 +200,7 @@
     <circle class="led" cx="240" cy="230" r="6"/>
     <circle class="led" cx="270" cy="230" r="6"/>
 
-    <!-- R7 -->
+    <!-- R8 -->
     <circle class="led" cx="60" cy="260" r="6"/>
     <circle class="led" cx="90" cy="260" r="6"/>
     <circle class="led" cx="120" cy="260" r="6"/>

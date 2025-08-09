@@ -10,24 +10,24 @@
   <!-- Labels -->
   <g font-size="14" fill="white">
     <!-- Row labels -->
-    <text x="10" y="45">R0</text>
-    <text x="10" y="95">R1</text>
-    <text x="10" y="145">R2</text>
-    <text x="10" y="195">R3</text>
-    <text x="10" y="245">R4</text>
-    <text x="10" y="295">R5</text>
-    <text x="10" y="345">R6</text>
-    <text x="10" y="395">R7</text>
+    <text x="10" y="45">R1</text>
+    <text x="10" y="95">R2</text>
+    <text x="10" y="145">R3</text>
+    <text x="10" y="195">R4</text>
+    <text x="10" y="245">R5</text>
+    <text x="10" y="295">R6</text>
+    <text x="10" y="345">R7</text>
+    <text x="10" y="395">R8</text>
 
     <!-- Column labels -->
-    <text x="55" y="25">C0</text>
-    <text x="105" y="25">C1</text>
-    <text x="155" y="25">C2</text>
-    <text x="205" y="25">C3</text>
-    <text x="255" y="25">C4</text>
-    <text x="305" y="25">C5</text>
-    <text x="355" y="25">C6</text>
-    <text x="405" y="25">C7</text>
+    <text x="55" y="25">C1</text>
+    <text x="105" y="25">C2</text>
+    <text x="155" y="25">C3</text>
+    <text x="205" y="25">C4</text>
+    <text x="255" y="25">C5</text>
+    <text x="305" y="25">C6</text>
+    <text x="355" y="25">C7</text>
+    <text x="405" y="25">C8</text>
   </g>
 
   <!-- Grid lines -->
@@ -138,6 +138,6 @@
   </g>
 
   <!-- Label for the active LED -->
-  <text x="100" y="70" font-size="12" fill="white">LED(R1,C1) is ON</text>
+  <text x="100" y="70" font-size="12" fill="white">LED(R2,C2) is ON</text>
 </svg>
 

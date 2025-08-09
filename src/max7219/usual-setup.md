@@ -41,5 +41,5 @@ This time, we add the embedded-hal-mock crate now itself under dev-dependencies,
 
 ```toml
 [dev-dependencies]
-embedded-hal-mock = { version = "0.11.1", "features" = ["eh1"] }
+embedded-hal-mock = { version = "0.11.1", features = ["eh1"] }
 ```
