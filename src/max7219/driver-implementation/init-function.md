@@ -28,3 +28,19 @@ pub fn init(&mut self) -> Result<()> {
 
 Hoorah! We have finally completed our driver.
 
+## Completed Project
+
+I have made a simple driver project that follows everything we explained in this book. You can find it here: [https://github.com/ImplFerris/max7219-driver-project](https://github.com/ImplFerris/max7219-driver-project).
+
+If you run into any errors while compiling or want to see a complete example, this project should be helpful.
+
+## Where to Go From Here?
+
+As i mentioned earlier, I have created a full-featured crate called **max7219-display** that provides easy-to-use utility functions to control both LED matrix and 7-segment displays. It is published on crates.io [here](https://crates.io/crates/max7219-display) 
+
+We didn't cover this crate in detail because it's outside the scope of writing a low-level driver; it builds on top of the bare-driver we created in this book.
+
+As an exercise, you can explore the crate's features and usage by checking out its documentation [here](https://docs.rs/max7219-display/latest/max7219_display/index.html)
+
+You can also find the full source code on GitHub here:  
+[https://github.com/ImplFerris/max7219-display](https://github.com/ImplFerris/max7219-display)
