@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Source: https://github.com/ImplFerris/ImplFerris
+  Copyright (c) 2025 implrust.com
+  Licensed under CC BY-SA 4.0
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="400" height="240" viewBox="0 0 200 120" role="img" aria-label="Circle with bounding box">
+
+  <!-- Background grid -->
+  <defs>
+    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M10 0 L0 0 0 10" fill="none" stroke="#ddd" stroke-width="0.5"/>
+    </pattern>
+
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#0040ff"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="200" height="120" fill="url(#grid)"/>
+
+  <!-- Circle -->
+  <circle cx="100" cy="60" r="40" fill="#b3d9ff" stroke="#004080" stroke-width="2"/>
+
+  <!-- Bounding box -->
+  <rect x="60" y="20" width="80" height="80"
+        fill="none" stroke="#ff8000" stroke-width="2" stroke-dasharray="6 4"/>
+
+  <!-- Corner marks -->
+  <circle cx="60" cy="20" r="3" fill="#ff8000"/>
+  <circle cx="140" cy="20" r="3" fill="#ff8000"/>
+  <circle cx="60" cy="100" r="3" fill="#ff8000"/>
+  <circle cx="140" cy="100" r="3" fill="#ff8000"/>
+
+  <!-- Top Left label positioned above arrow -->
+  <rect x="4" y="3" width="50" height="12" fill="#ffff99" stroke="none"/>
+  <text x="30" y="12" font-family="monospace" font-size="8" fill="#006600" text-anchor="middle" font-weight="bold">Top Left</text>
+
+  <!-- Arrow pointing to Top Left corner -->
+  <line x1="40" y1="14" x2="58" y2="20" stroke="#0040ff" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Width -->
+  <rect x="88" y="104" width="24" height="12" fill="#ffff99" stroke="none"/>
+  <text x="100" y="113" font-family="monospace" font-size="8" fill="#990000" text-anchor="middle" font-weight="bold">Width</text>
+
+  <!-- Height -->
+  <g transform="rotate(90 152,65)">
+    <rect x="130" y="57" width="30" height="18" fill="#ffff99" stroke="none"/>
+    <text x="145" y="69" font-family="monospace" font-size="8" fill="#003366" text-anchor="middle" font-weight="bold">Height</text>
+  </g>
+</svg>
+

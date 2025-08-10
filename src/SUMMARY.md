@@ -37,3 +37,8 @@
         - [Digit and Decode](./max7219/driver-implementation/digit-decode.md)
         - [Init function](./max7219/driver-implementation/init-function.md)
     - [Using with ESP32](./max7219/rust-and-esp32.md)
+- [Embedded Graphics](./embedded-graphics/index.md)
+    - [LED Matrix](./embedded-graphics/led-matrix.md)
+    - [Dimensions](./embedded-graphics/dimensions.md)
+    - [Draw Target](./embedded-graphics/draw-target.md)
+    - [Flush](./embedded-graphics/flush.md)
