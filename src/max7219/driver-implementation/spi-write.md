@@ -10,13 +10,6 @@ If there is just a single device (device index 0, which is the closest to the mi
 
 When there are multiple devices, we write at the right offset for the target device, and the rest of the buffer remains zeros (no-ops) to avoid affecting other devices.
 
-<div style="text-align: center;">
-  <a href="../images/max7219-daisy-chain-indices.png"><img style="display: block; margin: auto;" alt="Max7219 Devices Device Indices" src="../images/max7219-daisy-chain-indices.png"/></a>
-  <figcaption style="font-style: italic; margin-top: 8px; color: #555;">
-    Figure 1: 4 daisy-chained Max7219 device Indices
-  </figcaption>
-</div> 
-
 For example, if there are 4 devices and we want to write to the device at index 2 (the third device from the left), the offset for the register address is 2 * 2 = 4, and the data byte goes at index 5.
 
 So the full data sent through SPI will look like this (2 bytes per device):
@@ -51,11 +44,20 @@ pub(crate) fn write_device_register(
 
 ## Writing to All Device Registers at Once
 
-The second function, `write_all_registers`, lets us send register updates to all devices in the daisy chain at once using a single SPI transaction. This makes it efficient for actions like powering on all devices, changing brightness, or other settings that apply to every display.
+We will create a second function called `write_all_registers` that allows us to send register updates to every device in the daisy chain in a single SPI transaction. This approach is more efficient for operations such as powering on all devices, adjusting brightness, or applying other settings to all displays at once.
+
+<div style="text-align: center;">
+  <a href="../images/max7219-daisy-chain-indices.png"><img style="display: block; margin: auto;" alt="Max7219 Devices Device Indices" src="../images/max7219-daisy-chain-indices.png"/></a>
+  <figcaption style="font-style: italic; margin-top: 8px; color: #555;">
+    Figure 1: 4 daisy-chained Max7219 device Indices
+  </figcaption>
+</div> 
 
 It takes a slice of (Register, u8) tuples, where each tuple contains the register and data for each device in the chain.
 
-We start by clearing the buffer. Then, we fill it in reverse order because SPI shifts data starting from the last device in the chain to the first. This means the data for the last device goes at the beginning of the buffer, and the data for the first device goes at the end. 
+We start by clearing the buffer. Then we start filling packets for each devices. The packet we write in the first index of the array goes to leftmost device.
+
+> In a daisy chain, the MAX7219 shifts data starting from the rightmost device, which is closest to the microcontroller, toward the leftmost device. So when SPI sends data starting at index 0 in the buffer, that packet actually ends up at the leftmost device.
 
 For example, if we have 4 devices and want to send register-data pairs to all, the buffer fills like this:
 
