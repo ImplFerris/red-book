@@ -142,8 +142,8 @@ fn main() -> ! {
 If you want to get started quickly, you can clone a ready-to-use example project from my repository:
 
 ```sh
-git clone https://github.com/ImplFerris/esp32-projects
-cd esp32-projects/non-async/max7219-ledmatrix
+git clone https://github.com/implferris/max7219-esp32-demo
+cd max7219-esp32-demo
 ```
 
 This project includes Wokwi configuration, so you can test it with the MAX7219 LED matrix virtually, right inside VSCode using the Wokwi simulator. No physical hardware needed to get started. Just install the Wokwi extension for VSCode and run the project to see the LED matrix in action. For details, visit [https://docs.wokwi.com/vscode/getting-started](https://docs.wokwi.com/vscode/getting-started).
