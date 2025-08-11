@@ -97,7 +97,7 @@ I have created this image to illustrate the framebuffer layout for four daisy-ch
 <div style="text-align: center;">
   <a href="./images/framebuffer-max7219-deviec-indices.svg"><img style="display: block; margin: auto;" alt="Max7219 Devices and Framebuffer indices" src="./images/framebuffer-max7219-deviec-indices.svg"/></a>
   <figcaption style="font-style: italic; margin-top: 8px; color: #555;">
-    Figure 1: 4 daisy-chained Max7219 devices with corresponding framebuffer indices.
+    Figure 2: 4 daisy-chained Max7219 devices with corresponding framebuffer indices.
   </figcaption>
 </div> 
 
@@ -120,8 +120,7 @@ If we apply this to the example pixel position (5, 2), where device_index = 0, r
 index = 0 * 64 + 2 * 8 + 5 = 21
 ```
 
-This means we update the 21st byte in the framebuffer array to turn the pixel on or off, depending on the color.is_on() value.
-
+This means we update the 21st byte in the framebuffer array to turn the pixel on or off, depending on the color.is_on() value. Now, if you cross check with Figure 2, you will find that framebuffer index 21 is located at column 5 (counting from 0) and row 2.
 
 ## Tests
 

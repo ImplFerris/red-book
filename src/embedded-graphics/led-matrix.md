@@ -8,7 +8,7 @@ In our case, for the interface part, we will provide the Max7219 driver object t
 
 ## Framebuffer length
 
-We can't fixed framebuffer length like that. For a single 8x8 LED matrix, the buffer length would be 64 bytes (8 * 8), but we want to support daisy-chained devices. The user might have a single LED matrix or 4 or 8 daisy-chained matrices.
+We can't fix the framebuffer length like that. For a single 8x8 LED matrix, the buffer length would be 64 bytes (8 * 8), but we want to support daisy-chained devices. The user might have a single LED matrix or 4 or 8 daisy-chained matrices.
 
 - For 4 daisy-chained matrices, the display size is 32x8 pixels, requiring a buffer length of 256.
 
