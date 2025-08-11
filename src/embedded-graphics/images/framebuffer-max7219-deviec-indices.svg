@@ -1,0 +1,87 @@
+<!--
+  Source: https://github.com/ImplFerris/ImplFerris
+  Copyright (c) 2025 implrust.com
+  Licensed under CC BY-SA 4.0
+-->
+<svg width="1170" height="420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Framebuffer layout for 4 daisy-chained LED matrices">
+  <style>
+    .device-label { font: bold 16px sans-serif; fill: white; }
+    .physical-label { font: bold 16px sans-serif; fill: #ccc; }
+    .index { font: 12px monospace; fill: white; dominant-baseline: middle; text-anchor: middle; }
+    .device-box { fill: none; stroke-width: 2; }
+    .device0 { stroke: #d62728; }
+    .device1 { stroke: #ff7f0e; }
+    .device2 { stroke: #2ca02c; }
+    .device3 { stroke: #1f77b4; }
+    .coord-label { font: 14px sans-serif; fill: #aaa; }
+  </style>
+  
+  <rect width="1170" height="420" fill="black"/>
+  
+  <!-- Section labels -->
+  <text x="150" y="390" class="physical-label" text-anchor="middle">Physical Device 0 (Leftmost)</text>
+  <text x="440" y="390" class="physical-label" text-anchor="middle">Physical Device 1</text>
+  <text x="730" y="390" class="physical-label" text-anchor="middle">Physical Device 2</text>
+  <text x="1020" y="390" class="physical-label" text-anchor="middle">Physical Device 3 (Nearest MCU)</text>
+
+  <!-- Device 3 box (leftmost, furthest from MCU) -->
+  <rect x="10" y="50" width="280" height="320" class="device-box device3"/>
+  <text x="150" y="40" class="device-label" text-anchor="middle">Framebuffer indices 0-63</text>
+
+  <g transform="translate(10, 50)">
+    <text class="index" x="25"  y="25">0</text><text class="index" x="59"  y="25">1</text><text class="index" x="93"  y="25">2</text><text class="index" x="127" y="25">3</text><text class="index" x="161" y="25">4</text><text class="index" x="195" y="25">5</text><text class="index" x="229" y="25">6</text><text class="index" x="263" y="25">7</text>
+    <text class="index" x="25"  y="65">8</text><text class="index" x="59"  y="65">9</text><text class="index" x="93"  y="65">10</text><text class="index" x="127" y="65">11</text><text class="index" x="161" y="65">12</text><text class="index" x="195" y="65">13</text><text class="index" x="229" y="65">14</text><text class="index" x="263" y="65">15</text>
+    <text class="index" x="25"  y="105">16</text><text class="index" x="59"  y="105">17</text><text class="index" x="93"  y="105">18</text><text class="index" x="127" y="105">19</text><text class="index" x="161" y="105">20</text><text class="index" x="195" y="105">21</text><text class="index" x="229" y="105">22</text><text class="index" x="263" y="105">23</text>
+    <text class="index" x="25"  y="145">24</text><text class="index" x="59"  y="145">25</text><text class="index" x="93"  y="145">26</text><text class="index" x="127" y="145">27</text><text class="index" x="161" y="145">28</text><text class="index" x="195" y="145">29</text><text class="index" x="229" y="145">30</text><text class="index" x="263" y="145">31</text>
+    <text class="index" x="25"  y="185">32</text><text class="index" x="59"  y="185">33</text><text class="index" x="93"  y="185">34</text><text class="index" x="127" y="185">35</text><text class="index" x="161" y="185">36</text><text class="index" x="195" y="185">37</text><text class="index" x="229" y="185">38</text><text class="index" x="263" y="185">39</text>
+    <text class="index" x="25"  y="225">40</text><text class="index" x="59"  y="225">41</text><text class="index" x="93"  y="225">42</text><text class="index" x="127" y="225">43</text><text class="index" x="161" y="225">44</text><text class="index" x="195" y="225">45</text><text class="index" x="229" y="225">46</text><text class="index" x="263" y="225">47</text>
+    <text class="index" x="25"  y="265">48</text><text class="index" x="59"  y="265">49</text><text class="index" x="93"  y="265">50</text><text class="index" x="127" y="265">51</text><text class="index" x="161" y="265">52</text><text class="index" x="195" y="265">53</text><text class="index" x="229" y="265">54</text><text class="index" x="263" y="265">55</text>
+    <text class="index" x="25"  y="305">56</text><text class="index" x="59"  y="305">57</text><text class="index" x="93"  y="305">58</text><text class="index" x="127" y="305">59</text><text class="index" x="161" y="305">60</text><text class="index" x="195" y="305">61</text><text class="index" x="229" y="305">62</text><text class="index" x="263" y="305">63</text>
+  </g>
+
+  <!-- Device 2 box -->
+  <rect x="300" y="50" width="280" height="320" class="device-box device2"/>
+  <text x="440" y="40" class="device-label" text-anchor="middle">Framebuffer indices 64-127</text>
+
+  <g transform="translate(300, 50)">
+    <text class="index" x="25"  y="25">64</text><text class="index" x="59"  y="25">65</text><text class="index" x="93"  y="25">66</text><text class="index" x="127" y="25">67</text><text class="index" x="161" y="25">68</text><text class="index" x="195" y="25">69</text><text class="index" x="229" y="25">70</text><text class="index" x="263" y="25">71</text>
+    <text class="index" x="25"  y="65">72</text><text class="index" x="59"  y="65">73</text><text class="index" x="93"  y="65">74</text><text class="index" x="127" y="65">75</text><text class="index" x="161" y="65">76</text><text class="index" x="195" y="65">77</text><text class="index" x="229" y="65">78</text><text class="index" x="263" y="65">79</text>
+    <text class="index" x="25"  y="105">80</text><text class="index" x="59"  y="105">81</text><text class="index" x="93"  y="105">82</text><text class="index" x="127" y="105">83</text><text class="index" x="161" y="105">84</text><text class="index" x="195" y="105">85</text><text class="index" x="229" y="105">86</text><text class="index" x="263" y="105">87</text>
+    <text class="index" x="25"  y="145">88</text><text class="index" x="59"  y="145">89</text><text class="index" x="93"  y="145">90</text><text class="index" x="127" y="145">91</text><text class="index" x="161" y="145">92</text><text class="index" x="195" y="145">93</text><text class="index" x="229" y="145">94</text><text class="index" x="263" y="145">95</text>
+    <text class="index" x="25"  y="185">96</text><text class="index" x="59"  y="185">97</text><text class="index" x="93"  y="185">98</text><text class="index" x="127" y="185">99</text><text class="index" x="161" y="185">100</text><text class="index" x="195" y="185">101</text><text class="index" x="229" y="185">102</text><text class="index" x="263" y="185">103</text>
+    <text class="index" x="25"  y="225">104</text><text class="index" x="59"  y="225">105</text><text class="index" x="93"  y="225">106</text><text class="index" x="127" y="225">107</text><text class="index" x="161" y="225">108</text><text class="index" x="195" y="225">109</text><text class="index" x="229" y="225">110</text><text class="index" x="263" y="225">111</text>
+    <text class="index" x="25"  y="265">112</text><text class="index" x="59"  y="265">113</text><text class="index" x="93"  y="265">114</text><text class="index" x="127" y="265">115</text><text class="index" x="161" y="265">116</text><text class="index" x="195" y="265">117</text><text class="index" x="229" y="265">118</text><text class="index" x="263" y="265">119</text>
+    <text class="index" x="25"  y="305">120</text><text class="index" x="59"  y="305">121</text><text class="index" x="93"  y="305">122</text><text class="index" x="127" y="305">123</text><text class="index" x="161" y="305">124</text><text class="index" x="195" y="305">125</text><text class="index" x="229" y="305">126</text><text class="index" x="263" y="305">127</text>
+  </g>
+
+  <!-- Device 1 box -->
+  <rect x="590" y="50" width="280" height="320" class="device-box device1"/>
+  <text x="730" y="40" class="device-label" text-anchor="middle">Framebuffer indices 128-191</text>
+
+  <g transform="translate(590, 50)">
+    <text class="index" x="25"  y="25">128</text><text class="index" x="59"  y="25">129</text><text class="index" x="93"  y="25">130</text><text class="index" x="127" y="25">131</text><text class="index" x="161" y="25">132</text><text class="index" x="195" y="25">133</text><text class="index" x="229" y="25">134</text><text class="index" x="263" y="25">135</text>
+    <text class="index" x="25"  y="65">136</text><text class="index" x="59"  y="65">137</text><text class="index" x="93"  y="65">138</text><text class="index" x="127" y="65">139</text><text class="index" x="161" y="65">140</text><text class="index" x="195" y="65">141</text><text class="index" x="229" y="65">142</text><text class="index" x="263" y="65">143</text>
+    <text class="index" x="25"  y="105">144</text><text class="index" x="59"  y="105">145</text><text class="index" x="93"  y="105">146</text><text class="index" x="127" y="105">147</text><text class="index" x="161" y="105">148</text><text class="index" x="195" y="105">149</text><text class="index" x="229" y="105">150</text><text class="index" x="263" y="105">151</text>
+    <text class="index" x="25"  y="145">152</text><text class="index" x="59"  y="145">153</text><text class="index" x="93"  y="145">154</text><text class="index" x="127" y="145">155</text><text class="index" x="161" y="145">156</text><text class="index" x="195" y="145">157</text><text class="index" x="229" y="145">158</text><text class="index" x="263" y="145">159</text>
+    <text class="index" x="25"  y="185">160</text><text class="index" x="59"  y="185">161</text><text class="index" x="93"  y="185">162</text><text class="index" x="127" y="185">163</text><text class="index" x="161" y="185">164</text><text class="index" x="195" y="185">165</text><text class="index" x="229" y="185">166</text><text class="index" x="263" y="185">167</text>
+    <text class="index" x="25"  y="225">168</text><text class="index" x="59"  y="225">169</text><text class="index" x="93"  y="225">170</text><text class="index" x="127" y="225">171</text><text class="index" x="161" y="225">172</text><text class="index" x="195" y="225">173</text><text class="index" x="229" y="225">174</text><text class="index" x="263" y="225">175</text>
+    <text class="index" x="25"  y="265">176</text><text class="index" x="59"  y="265">177</text><text class="index" x="93"  y="265">178</text><text class="index" x="127" y="265">179</text><text class="index" x="161" y="265">180</text><text class="index" x="195" y="265">181</text><text class="index" x="229" y="265">182</text><text class="index" x="263" y="265">183</text>
+    <text class="index" x="25"  y="305">184</text><text class="index" x="59"  y="305">185</text><text class="index" x="93"  y="305">186</text><text class="index" x="127" y="305">187</text><text class="index" x="161" y="305">188</text><text class="index" x="195" y="305">189</text><text class="index" x="229" y="305">190</text><text class="index" x="263" y="305">191</text>
+  </g>
+
+  <!-- Device 0 box (rightmost, closest to MCU) -->
+  <rect x="880" y="50" width="280" height="320" class="device-box device0"/>
+  <text x="1020" y="40" class="device-label" text-anchor="middle">Framebuffer indices 192-255</text>
+
+  <g transform="translate(880, 50)">
+    <text class="index" x="25"  y="25">192</text><text class="index" x="59"  y="25">193</text><text class="index" x="93"  y="25">194</text><text class="index" x="127" y="25">195</text><text class="index" x="161" y="25">196</text><text class="index" x="195" y="25">197</text><text class="index" x="229" y="25">198</text><text class="index" x="263" y="25">199</text>
+    <text class="index" x="25"  y="65">200</text><text class="index" x="59"  y="65">201</text><text class="index" x="93"  y="65">202</text><text class="index" x="127" y="65">203</text><text class="index" x="161" y="65">204</text><text class="index" x="195" y="65">205</text><text class="index" x="229" y="65">206</text><text class="index" x="263" y="65">207</text>
+    <text class="index" x="25"  y="105">208</text><text class="index" x="59"  y="105">209</text><text class="index" x="93"  y="105">210</text><text class="index" x="127" y="105">211</text><text class="index" x="161" y="105">212</text><text class="index" x="195" y="105">213</text><text class="index" x="229" y="105">214</text><text class="index" x="263" y="105">215</text>
+    <text class="index" x="25"  y="145">216</text><text class="index" x="59"  y="145">217</text><text class="index" x="93"  y="145">218</text><text class="index" x="127" y="145">219</text><text class="index" x="161" y="145">220</text><text class="index" x="195" y="145">221</text><text class="index" x="229" y="145">222</text><text class="index" x="263" y="145">223</text>
+    <text class="index" x="25"  y="185">224</text><text class="index" x="59"  y="185">225</text><text class="index" x="93"  y="185">226</text><text class="index" x="127" y="185">227</text><text class="index" x="161" y="185">228</text><text class="index" x="195" y="185">229</text><text class="index" x="229" y="185">230</text><text class="index" x="263" y="185">231</text>
+    <text class="index" x="25"  y="225">232</text><text class="index" x="59"  y="225">233</text><text class="index" x="93"  y="225">234</text><text class="index" x="127" y="225">235</text><text class="index" x="161" y="225">236</text><text class="index" x="195" y="225">237</text><text class="index" x="229" y="225">238</text><text class="index" x="263" y="225">239</text>
+    <text class="index" x="25"  y="265">240</text><text class="index" x="59"  y="265">241</text><text class="index" x="93"  y="265">242</text><text class="index" x="127" y="265">243</text><text class="index" x="161" y="265">244</text><text class="index" x="195" y="265">245</text><text class="index" x="229" y="265">246</text><text class="index" x="263" y="265">247</text>
+    <text class="index" x="25"  y="305">248</text><text class="index" x="59"  y="305">249</text><text class="index" x="93"  y="305">250</text><text class="index" x="127" y="305">251</text><text class="index" x="161" y="305">252</text><text class="index" x="195" y="305">253</text><text class="index" x="229" y="305">254</text><text class="index" x="263" y="305">255</text>
+  </g>
+
+</svg>
