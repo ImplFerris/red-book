@@ -49,7 +49,7 @@ Let's walk through the code step-by-step:
 
 ## Batched SPI Commands
 
-We send SPI commands in batches; one SPI transaction per row regardless of the number of devices. So, at the top-most loop, we iterate over the Digit Registers (from 0 to 7), representing each row of the display.
+We send SPI commands in batches; one SPI transaction per row regardless of the number of devices. So, at the top-level loop, we iterate over the Digit Registers (from 0 to 7), representing each row of the display.
 
 ```rust
 for (row, digit_register) in Register::digits().enumerate() {
@@ -72,13 +72,13 @@ Next, we determine which columns correspond to the current row for each device b
   </figcaption>
 </div> 
 
-We calculate buffer_start as:
+We calculate buffer_start using the formula:
 
 ```rust
 let buffer_start = device_index * 64 + row * 8;
 ```
 
-This calculation works because each device's framebuffer occupies 64 bytes (8 rows × 8 columns). Multiplying device_index by 64 jumps to that device's start, then adding row * 8 moves to the correct row within that device.
+Each device's section of the framebuffer is 64 bytes (8 rows × 8 columns). Multiplying the device index by 64 takes us to the start of that device's section. Then, row * 8 moves us down to the specific row inside that device.
 
 For example, if we are processing the second row (row index 1) of the third device (device_index 2), the buffer start is:
 
@@ -88,7 +88,7 @@ For example, if we are processing the second row (row index 1) of the third devi
 
 You can verify this position against the illustration above, where the buffer_start matches the row and device's location in the framebuffer.
 
-## Build Data Packet
+## Building the Data Packet
 
 Now that we know the starting column position for the current row and device, we need to create the data packet representing which pixels in this row are turned on or off.
 

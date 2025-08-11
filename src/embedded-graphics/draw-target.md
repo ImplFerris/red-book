@@ -1,6 +1,6 @@
 # Implementing Draw Target for Max7219 LedMatrix
 
-Next, we will implement the DrawTarget trait for our LedMatrix struct. This trait lets us draw pixels and shapes onto the LED matrix using embedded-graphics APIs.
+Next, we will implement the DrawTarget trait for our LedMatrix struct. This trait allows us to draw pixels and shapes onto the LED matrix using embedded-graphics APIs.
 
 Required imports:
 
@@ -10,7 +10,7 @@ use embedded_graphics_core::pixelcolor::BinaryColor;
 use embedded_graphics_core::prelude::{DrawTarget, OriginDimensions, Size};
 ```
 
-Here is the full implementation of the DrawTarget trait for our LedMatrix (add this in the display.rs module). We have implemented the draw_iter function that takes an iterator of pixels to draw. 
+Here is the full implementation of the DrawTarget trait for our LedMatrix (add this in the display.rs module). We implement the draw_iter function that takes an iterator of pixels to draw. 
 
 We set the Color type to BinaryColor because the LED matrix supports only on and off states. We then set the Error type to core::convert::Infallible since all drawing operations modify only the local framebuffer. No hardware communication happens during drawing, so there is no possibility of errors at this stage. This means our drawing operations are infallible and guaranteed to succeed.
 
@@ -50,9 +50,9 @@ where
 }
 ```
 
-## How it looks in Display?
+## How It looks on the Display?
 
-Before i explain the code, let me quickly show you how the embedded-graphics coordinates map to the physical LED matrix layout.
+Before I explain the code, let me quickly show you how the embedded-graphics coordinates map to the physical LED matrix layout.
 
 From the embedded-graphics point of view, all the daisy-chained devices together form one big display. The pixel at coordinate (0, 0) corresponds to the first LED on the leftmost device in the chain.
 
@@ -106,7 +106,7 @@ After confirming the indices are valid, we calculate the linear index into the f
 
 ```rust
 // Code snippet
-let index = device * 64 + row * 8 + col;
+let index = device_index * 64 + row * 8 + col;
 if index < self.framebuffer.len() {
     self.framebuffer[index] = color.is_on() as u8;
 }
@@ -114,7 +114,7 @@ if index < self.framebuffer.len() {
 
 Finally, if the index is within the framebuffer length, we set the framebuffer byte at that index to 1 if the pixel color is on, or 0 if it is off. This updates the local framebuffer to reflect the pixel changes requested by the draw operation.
 
-If we apply this to the example pixel position (5, 2), where device = 0, row = 2, and col = 5, the index is calculated as:
+If we apply this to the example pixel position (5, 2), where device_index = 0, row = 2, and col = 5, the index is calculated as:
 
 ```rust
 index = 0 * 64 + 2 * 8 + 5 = 21
