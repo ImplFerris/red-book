@@ -10,7 +10,14 @@ If there is just a single device (device index 0, which is the closest to the mi
 
 When there are multiple devices, we write at the right offset for the target device, and the rest of the buffer remains zeros (no-ops) to avoid affecting other devices.
 
-For example, if there are 4 devices and we want to write to the device at index 2 (the third device from the microcontroller), the offset for the register address is 2 * 2 = 4, and the data byte goes at index 5.
+<div style="text-align: center;">
+  <a href="../images/max7219-daisy-chain-indices.png"><img style="display: block; margin: auto;" alt="Max7219 Devices Device Indices" src="../images/max7219-daisy-chain-indices.png"/></a>
+  <figcaption style="font-style: italic; margin-top: 8px; color: #555;">
+    Figure 1: 4 daisy-chained Max7219 device Indices
+  </figcaption>
+</div> 
+
+For example, if there are 4 devices and we want to write to the device at index 2 (the third device from the left), the offset for the register address is 2 * 2 = 4, and the data byte goes at index 5.
 
 So the full data sent through SPI will look like this (2 bytes per device):
 
@@ -54,9 +61,9 @@ For example, if we have 4 devices and want to send register-data pairs to all, t
 
 | Index    | 0              | 1         | 2              | 3         | 4              | 5         | 6              | 7         |
 |----------|----------------|-----------|----------------|-----------|----------------|-----------|----------------|-----------|
-| Content  | reg_3 | data_3    | reg_2 | data_2    | reg_1 | data_1    | reg_0 | data_0    |
+| Content  | reg_0 | data_0    | reg_1 | data_1    | reg_2 | data_2    | reg_3 | data_3    |
 
-Here, bytes 0 and 1 are for device 3, bytes 2 and 3 for device 2, and so on.
+Here, bytes 0 and 1 are for device 0, bytes 2 and 3 for device 1, and so on.
 
 ```rust
 pub(crate) fn write_all_registers(&mut self, ops: &[(Register, u8)]) -> Result<()> {
@@ -64,7 +71,7 @@ pub(crate) fn write_all_registers(&mut self, ops: &[(Register, u8)]) -> Result<(
     self.buffer = [0; MAX_DISPLAYS * 2];
 
     // fill in reverse order so that SPI shifts into the last device first
-    for (i, &(reg, data)) in ops.iter().rev().enumerate() {
+    for (i, &(reg, data)) in ops.iter().enumerate() {
         let offset = i * 2;
         self.buffer[offset] = reg as u8;
         self.buffer[offset + 1] = data;
