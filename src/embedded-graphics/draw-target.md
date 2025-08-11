@@ -12,8 +12,7 @@ use embedded_graphics_core::prelude::{DrawTarget, OriginDimensions, Size};
 
 Here is the full implementation of the DrawTarget trait for our LedMatrix (add this in the display.rs module). We have implemented the draw_iter function that takes an iterator of pixels to draw. 
 
-The Color type is set to BinaryColor because the LED matrix supports only on and off states. The Error type is core::convert::Infallible since all drawing operations modify only the local framebuffer. No hardware communication happens during drawing, so there is no possibility of errors occurring at this stage. This ensures that drawing operations are infallible and guaranteed to succeed.
-
+We set the Color type to BinaryColor because the LED matrix supports only on and off states. We then set the Error type to core::convert::Infallible since all drawing operations modify only the local framebuffer. No hardware communication happens during drawing, so there is no possibility of errors at this stage. This means our drawing operations are infallible and guaranteed to succeed.
 
 ```rust
 
@@ -102,7 +101,8 @@ I have created this image to illustrate the framebuffer layout for four daisy-ch
   </figcaption>
 </div> 
 
-After confirming the indices are valid, we calculate the linear index into the framebuffer. The framebuffer is a flat array where each device occupies 64 bytes (8 rows × 8 columns), so the index is computed by multiplying the device number by 64, then adding the row offset (row × 8) and the column offset.
+
+After confirming the indices are valid, we calculate the linear index into the framebuffer. The framebuffer is stored as a flat array, with each device using 64 bytes (8 rows × 8 columns). The first 64 entries belong to the first device, the next 64 entries belong to the second device, and so on. To compute the index, we multiply the device number by 64, add the row offset (row × 8), and then add the column offset.
 
 ```rust
 // Code snippet

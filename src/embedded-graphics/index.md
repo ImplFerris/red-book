@@ -68,3 +68,13 @@ Add the `embedded-graphics-core` crate to your `Cargo.toml`:
 ```toml
 embedded-graphics-core = { version = "0.4.0" }
 ```
+
+## Update the lib.rs
+
+We will update the lib module to define the led_matrix module:
+
+```rust
+pub mod led_matrix;
+
+// Dont forget to create led_matrix/mod.rs and led_matrix/display.rs files
+```

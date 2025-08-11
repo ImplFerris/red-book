@@ -42,3 +42,5 @@
     - [Dimensions](./embedded-graphics/dimensions.md)
     - [Draw Target](./embedded-graphics/draw-target.md)
     - [Flush](./embedded-graphics/flush.md)
+    - [Clear Pixels](./embedded-graphics/clear-pixels.md)
+    - [Using with ESP32](./embedded-graphics/rust-and-esp32.md)

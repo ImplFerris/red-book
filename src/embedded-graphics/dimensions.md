@@ -58,7 +58,7 @@ where
 
 > 🦀 In Rust, a blanket implementation is a way to automatically implement a trait for all types that meet certain conditions (like already implementing another trait), without writing separate code for each type. 
 >
->For example, For example, the standard library has an implementation written as `impl<T: Display> ToString for T`. This means that every type that implements the Display trait gets acces to to_string() method. Because of this, String, i32, and any custom type that implements Display trait can call to_string() on it.
+>For example, the standard library has an implementation written as `impl<T: Display> ToString for T`. This means that every type that implements the Display trait gets acces to to_string() method. Because of this, String, i32, and any custom type that implements Display trait can call to_string() on it.
 > 
 > In our case, any type that implements OriginDimensions automatically gets an implementation of Dimensions.
 
