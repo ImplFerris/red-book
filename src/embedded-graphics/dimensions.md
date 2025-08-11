@@ -92,6 +92,7 @@ impl<SPI, const BUFFER_LENGTH: usize, const DEVICE_COUNT: usize> OriginDimension
 }
 ```
 
+## Tests
 
 ```rust
 #[cfg(test)]

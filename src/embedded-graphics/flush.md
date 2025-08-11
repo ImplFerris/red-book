@@ -151,7 +151,12 @@ self.driver.write_all_registers(&ops[..DEVICE_COUNT])?;
 
 This process is repeated for each row until the entire framebuffer is sent to the devices.
 
- 
+## The completed Project
+
+The completed project, which implements the embedded-graphics with the max7219-driver, is available here: 
+
+[https://github.com/ImplFerris/max7219-eg](https://github.com/ImplFerris/max7219-eg)
+
 ## Tests
 
 ```rust
