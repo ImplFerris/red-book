@@ -44,3 +44,9 @@
     - [Flush](./embedded-graphics/flush.md)
     - [Clear Pixels](./embedded-graphics/clear-pixels.md)
     - [Using with ESP32](./embedded-graphics/rust-and-esp32.md)
+- [[Draft] Real Time Clock](./rtc/index.md)
+    - [RTC HAL](./rtc/rtc-hal/index.md)
+        - [Project Setup](./rtc/rtc-hal/project-setup.md)
+        - [Error Types](./rtc/rtc-hal/error-types.md)
+        <!-- - [Core Traits](./rtc/rtc-hal/core-traits.md) -->
+   
