@@ -87,7 +87,7 @@ pub fn main() {
 
 ## Our RTC Error Design
 
-We'll use the same pattern as embedded-hal 1.0 and Rust's std::io::Error. Define standard error kinds so RTC drivers like ds3231 and ds1307 can use errors that fit their hardware while applications can handle errors the same way across different drivers.
+We'll use the same pattern as embedded-hal 1.0 and Rust's std::io::Error. We will define standard error kinds so RTC drivers like ds3231 and ds1307 can use errors that fit their hardware while applications can handle errors the same way across different drivers.
 
 Here is the overall Architecture of the RTC HAL error handling:
 
@@ -97,3 +97,78 @@ Here is the overall Architecture of the RTC HAL error handling:
     Figure 1: RTC HAL Error Handling Architecture
   </figcaption>
 </div> 
+
+## Implementation Example
+Here's how the error handling architecture will look in practice:
+
+### RTC HAL side:
+We define common error kinds and traits that all RTC drivers must implement
+
+```rust
+pub enum ErrorKind{
+    ...
+}
+
+pub trait Error { 
+    fn kind(&self) -> ErrorKind;
+}
+
+pub trait ErrorType {
+    /// Error type
+    type Error: Error;
+}
+...
+```
+
+### Driver side:
+Each driver defines its own specific errors but maps them to standard error kinds
+
+```rust
+pub enum Error{
+    ...
+}
+
+impl rtc_hal::error::Error for Error
+{
+    // Map driver-specific errors to standard RTC HAL error kinds
+    fn kind(&self) -> rtc_hal::error::ErrorKind {
+        match self {
+            Error::InvalidAddress => rtc_hal::error::ErrorKind::InvalidAddress,
+            Error::InvalidDateTime => rtc_hal::error::ErrorKind::InvalidDateTime,
+            ...
+        }
+    }
+}
+
+impl rtc_hal::error::ErrorType for DriverStruct {
+    type Error = crate::error::Error;
+}
+```
+
+### Application side:
+Applications can handle errors uniformly across different RTC drivers by matching on ErrorKind
+
+```rust
+pub struct DemoApp<RTC> {
+    rtc: RTC,
+}
+
+impl<RTC: Rtc> DemoApp<RTC> {
+
+    pub fn set_datetime(&mut self, dt: &DateTime) {
+        if let Err(e) = self.rtc.set_datetime(dt) {
+            // Handle errors generically using standard error kinds
+            match e.kind() {
+                rtc_hal::error::ErrorKind::InvalidDateTime => {
+                    error!("Invalid datetime provided");
+                }
+                rtc_hal::error::ErrorKind::Bus => {
+                    error!("RTC communication failed");
+                }
+                _ => error!("handle other errors..."),
+            }
+        }
+    }
+    ...
+}
+```
