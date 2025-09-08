@@ -30,6 +30,19 @@ cd rtc-hal
 
 Feel free to rename the project name. You can create all the necessary files and modules with placeholder content upfront, or create them as we go along.
 
+## Finally the main module(lib.rs) will have this
+
+```rust
+pub mod alarm;
+pub mod bcd;
+pub mod control;
+pub mod datetime;
+pub mod error;
+pub mod nvram;
+pub mod rtc;
+pub mod square_wave;
+```
+
 ## Configuring Dependencies
 
 For this library, we'll include defmt as an optional dependency to provide structured logging capabilities. We will put this dependency behind feature flag, so users can choose whether to include defmt support in their builds, keeping the library lightweight for those who don't need it.
