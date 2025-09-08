@@ -47,6 +47,7 @@
 - [[Draft] Real Time Clock](./rtc/index.md)
     - [RTC HAL](./rtc/rtc-hal/index.md)
         - [Project Setup](./rtc/rtc-hal/project-setup.md)
-        - [Error Types](./rtc/rtc-hal/error-types.md)
+        - [Error Handling](./rtc/rtc-hal/error-types.md)
+            - [Error Module](./rtc/rtc-hal/error-module.md)
         <!-- - [Core Traits](./rtc/rtc-hal/core-traits.md) -->
    

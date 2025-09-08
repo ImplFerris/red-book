@@ -172,3 +172,5 @@ impl<RTC: Rtc> DemoApp<RTC> {
     ...
 }
 ```
+
+This is the only complex part of the rtc-hal ; the rest is fairly simple (at least that's what i think). Take your time to go through it and understand the structure.
