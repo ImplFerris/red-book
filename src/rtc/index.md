@@ -39,3 +39,20 @@ Instead of just making two separate drivers, we'll build something more interest
 3. Finally i will show you a demo app that works with either module using the same code
 
 The cool part is that our test program won't care which RTC chip you use. This means the same code will work whether you connect a DS1307, DS3231, or any other RTC chip(that implements our RTC HAL trait). You can change the RTC and everything still works.
+
+## Finished Project
+
+Here's the final project for reference.
+
+This demo app(end-user example) uses different RTC drivers (DS1307 and DS3231) with RTC HAL traits:
+http://github.com/implferris/rtc-hal-demo
+
+These driver crates implements RTC HAL traits:
+- DS1307 RTC Driver: https://github.com/implferris/ds1307-rtc
+- DS3231 RTC Driver: https://github.com/implferris/ds3231-rtc
+
+The rtc-hal trait (the foundation, like embedded-hal crate):
+https://github.com/implferris/rtc-hal
+
+I listed this project backwards - starting from the end user view, then working back to rtc-hal. This shows you the big picture of how it all works together. But in the chapter, we'll start from rtc-hal because that's the foundation, and then moving upward.
+ 
