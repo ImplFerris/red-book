@@ -1,6 +1,7 @@
 # Project Setup
 
 This is what we are aiming for:
+
 ```sh
 .
 ├── Cargo.toml
@@ -18,6 +19,8 @@ This is what we are aiming for:
 ```
 
 Each module corresponds to different parts of our RTC HAL design. The rtc.rs contains our core trait, while square_wave.rs, nvram.rs, and control.rs handle the feature-specific traits. The datetime.rs module deals with date and time types, bcd.rs provides utillity functions for Binary Coded Decimal conversions (since most RTCs work with BCD internally), and error.rs defines our error types. Even though we're not covering alarms in this section, I've included alarm.rs for future implementation (it is just with comment "//TODO").
+
+> If you want to see the completed project, you can have a look at the rtc-hal project [here](https://github.com/implferris/rtc-hal)
 
 ## Create new library
 
