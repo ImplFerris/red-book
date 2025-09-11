@@ -19,7 +19,7 @@ I won't be covering project setup or wiring basics for the ESP32 in this section
 Create new project with esp-generate tool and add your Git repository as a dependency in your Cargo.toml:
 ```toml
 [dependencies]
-dht22-sensor = { git = "https://github.com/your-username/dht22-sensor" }
+dht22-sensor = { git = "https://github.com/<YOUR_USERNAME>/dht22-sensor" }
 ```
 
 ## Full Code
