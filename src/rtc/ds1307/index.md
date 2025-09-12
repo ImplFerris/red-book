@@ -1,10 +1,10 @@
 # DS1307
 
-The DS1307 keeps track of seconds, minutes, hours, day of the week, date of the month, month, and year with leap-year compensation valid up to the year 2100. The device automatically adjusts the end-of-month date for months with fewer than 31 days, including leap-year corrections.
+One of the RTC chips for which we will first implement the RTC HAL is the DS1307. The DS1307 keeps track of seconds, minutes, hours, day of the week, date of the month, month, and year with leap-year compensation valid up to the year 2100. The device automatically adjusts the end-of-month date for months with fewer than 31 days, including leap-year corrections.
 
 According to the [datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ds1307.pdf), it includes 56 bytes nonvolatile RAM for data storage.  It consumes less than 500 nA in battery backup mode with the oscillator running.
 
-The DS1307 supports both 24-hour and 12-hour time formats with an AM/PM indicator.  A built-in power-sense circuit capable of detecting power failures and automatically switches to a backup battery, allowing timekeeping to continue without interruption.  
+The DS1307 supports both 24-hour and 12-hour time formats with an AM/PM indicator.  A built-in power-sense circuit capable of detecting power failures and automatically switches to a backup battery, allowing timekeeping to continue without interruption.
 
 ## Module
 
@@ -19,7 +19,7 @@ I purchased an HW-111 RTC module, which is one of the common options. Another po
   <figcaption style="font-style: italic; margin-top: 8px; color: #555;">
     Figure 1: DS1307 Module Pinout
   </figcaption>
-</div> 
+</div>
 
 The DS1307 module has two identical rows of pins labeled **P1** (right side) and **P2** (left side). Pins with the same name are internally connected, so we can use either side. This is especially useful when daisy-chaining modules.
 
@@ -28,11 +28,11 @@ The DS1307 module has two identical rows of pins labeled **P1** (right side) and
 - **SCL** - Serial Clock line for the I2C interface. It synchronizes data transfer between the DS1307 and the microcontroller.
 - **SDA** - Serial Data line for the I2C interface. It is used for bidirectional data transfer.
 - **VCC** - Power supply input for the module. The operating voltage is typically 3.3 V to 5.5 V.
-- **GND** - Ground connection. 
+- **GND** - Ground connection.
  - **BAT** - a backup supply input for a standard 3V lithium cell or other energy source, ensuring accurate timekeeping when the main power is interrupted.
 
 ## I2C Interface
 
-We can use the I2C protocol to communicate between the module and a microcontroller. Both the DS1307 RTC chip and the onboard 24C32 EEPROM share the same I2C bus. Each device has its own fixed address so the microcontroller can tell them apart. The DS1307 uses address `0x68`, while the 24C32 uses address `0x50`.
+We can use the I2C protocol to communicate between the module and a microcontroller. Both the DS1307 RTC chip and the onboard 24C32 EEPROM share the same I2C bus. Each device has its own fixed address so the microcontroller can tell them apart. The DS1307 uses address `0x68`, while the 24C32 uses address `0x50`.  We will not focus on the 24C32 component, at least not in this chapter.
 
 The DS1307 only works with standard I2C speed, which is 100kHz.

@@ -1,6 +1,6 @@
 # DS1307 Registers
 
-The DS1307 contains two main register areas. The RTC registers are found at addresses 00h to 07h. These store the current time, date, and control settings. The onboard RAM is located at addresses 08h to 3Fh and can store up to 56 bytes of user data.
+The DS1307 contains 7 registers for storing date and time data, one control register, and 56 registers for non-volatile RAM.
 
 When you perform a multibyte read or write, the internal address pointer automatically moves to the next location. If it reaches 3Fh (the last RAM address), it wraps back to 00h, which is the start of the clock registers.
 
