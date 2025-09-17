@@ -1,8 +1,8 @@
 # Error Handling Implementation
 
-In this section, we will implement error handling for our DS1307 driver.
+In this section, we will implement error handling for our DS3231 driver.
 
-We will start by defining a custom error enum that covers all possible error types we may encounter when working with the DS1307 driver.
+We will start by defining a custom error enum that covers all possible error types we may encounter when working with the DS3231 driver.
 
 ```rust
 use rtc_hal::datetime::DateTimeError;
@@ -17,11 +17,11 @@ where
     InvalidAddress,
     UnsupportedSqwFrequency,
     DateTime(DateTimeError),
-    NvramOutOfBounds,
+    InvalidBaseCentury,
 }
 ```
 
-The `I2c(I2cError)` variant wraps errors that come from the underlying I2C communication layer. Since different microcontroller HALs have different I2C error types, we make our error enum generic over I2cError.  When an I2C operation fails (bus error, timeout, etc.), we wrap that specific error in our I2c variant and propagate it up. This preserves the original error information.
+The main difference between the DS1307 and DS3231 here is that we don't have the NvramOutOfBounds variant and added InvalidBaseCentury .
 
 Next, we will implement the Display trait for our error enum to provide clear error messages when debugging or handling errors:
 
@@ -33,10 +33,10 @@ where
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self {
             Error::I2c(e) => write!(f, "I2C communication error: {e}"),
-            Error::InvalidAddress => write!(f, "Invalid NVRAM address"),
+            Error::InvalidAddress => write!(f, "Invalid register address"),
             Error::DateTime(e) => write!(f, "Invalid date/time values: {e}"),
             Error::UnsupportedSqwFrequency => write!(f, "Unsupported square wave frequency"),
-            Error::NvramOutOfBounds => write!(f, "NVRAM operation out of bounds"),
+            Error::InvalidBaseCentury => write!(f, "Base century must be 19 or greater"),
         }
     }
 }
@@ -69,12 +69,14 @@ where
             Error::I2c(_) => rtc_hal::error::ErrorKind::Bus,
             Error::InvalidAddress => rtc_hal::error::ErrorKind::InvalidAddress,
             Error::DateTime(_) => rtc_hal::error::ErrorKind::InvalidDateTime,
-            Error::NvramOutOfBounds => rtc_hal::error::ErrorKind::NvramOutOfBounds,
             Error::UnsupportedSqwFrequency => rtc_hal::error::ErrorKind::UnsupportedSqwFrequency,
+            Error::InvalidBaseCentury => rtc_hal::error::ErrorKind::InvalidDateTime,
         }
     }
 }
 ```
+
+If you have noticed, we have mapped the InvalidBaseCentury error to the InvalidDateTime error of the RTC HAL; RTC HAL uses common errors, not specific ones for each device.
 
 ## Converting I2C Errors
 
@@ -94,14 +96,14 @@ where
 ## The full code for the Error module (error.rs)
 
 ```rust
-//! Error type definitions for the DS1307 RTC driver.
+//! Error type definitions for the DS3231 RTC driver.
 //!
 //! This module defines the `Error` enum and helper functions
-//! for classifying and handling DS1307-specific failures.
+//! for classifying and handling DS3231-specific failures.
 
 use rtc_hal::datetime::DateTimeError;
 
-/// DS1307 driver errors
+/// DS3231 driver errors
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 pub enum Error<I2cError>
@@ -116,8 +118,8 @@ where
     UnsupportedSqwFrequency,
     /// Invalid date/time parameters provided by user
     DateTime(DateTimeError),
-    /// NVRAM write would exceed available space
-    NvramOutOfBounds,
+    /// Invalid Base Century (It should be either 19,20,21)
+    InvalidBaseCentury,
 }
 
 impl<I2cError> core::fmt::Display for Error<I2cError>
@@ -127,10 +129,10 @@ where
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self {
             Error::I2c(e) => write!(f, "I2C communication error: {e}"),
-            Error::InvalidAddress => write!(f, "Invalid NVRAM address"),
+            Error::InvalidAddress => write!(f, "Invalid register address"),
             Error::DateTime(e) => write!(f, "Invalid date/time values: {e}"),
             Error::UnsupportedSqwFrequency => write!(f, "Unsupported square wave frequency"),
-            Error::NvramOutOfBounds => write!(f, "NVRAM operation out of bounds"),
+            Error::InvalidBaseCentury => write!(f, "Base century must be 19 or greater"),
         }
     }
 }
@@ -140,9 +142,9 @@ impl<I2cError> core::error::Error for Error<I2cError> where
 {
 }
 
-/// Converts an [`I2cError`] into an [`Error`] by wrapping it in the
-/// [`Error::I2c`] variant.
-///
+// /// Converts an [`I2cError`] into an [`Error`] by wrapping it in the
+// /// [`Error::I2c`] variant.
+// ///
 impl<I2cError> From<I2cError> for Error<I2cError>
 where
     I2cError: core::fmt::Debug,
@@ -161,8 +163,8 @@ where
             Error::I2c(_) => rtc_hal::error::ErrorKind::Bus,
             Error::InvalidAddress => rtc_hal::error::ErrorKind::InvalidAddress,
             Error::DateTime(_) => rtc_hal::error::ErrorKind::InvalidDateTime,
-            Error::NvramOutOfBounds => rtc_hal::error::ErrorKind::NvramOutOfBounds,
             Error::UnsupportedSqwFrequency => rtc_hal::error::ErrorKind::UnsupportedSqwFrequency,
+            Error::InvalidBaseCentury => rtc_hal::error::ErrorKind::InvalidDateTime,
         }
     }
 }
@@ -200,9 +202,9 @@ mod tests {
         let e: Error<&str> = Error::UnsupportedSqwFrequency;
         assert_eq!(e.kind(), ErrorKind::UnsupportedSqwFrequency);
 
-        // NvramOutOfBounds
-        let e: Error<&str> = Error::NvramOutOfBounds;
-        assert_eq!(e.kind(), ErrorKind::NvramOutOfBounds);
+        // InvalidBaseCentury
+        let e: Error<&str> = Error::InvalidBaseCentury;
+        assert_eq!(e.kind(), ErrorKind::InvalidDateTime);
     }
 
     #[derive(Debug, PartialEq, Eq)]
@@ -227,7 +229,7 @@ mod tests {
                 }),
                 "I2C communication error: I2C Error 1: test",
             ),
-            (Error::InvalidAddress, "Invalid NVRAM address"),
+            (Error::InvalidAddress, "Invalid register address"),
             (
                 Error::DateTime(DateTimeError::InvalidMonth),
                 "Invalid date/time values: invalid month",
@@ -236,7 +238,10 @@ mod tests {
                 Error::UnsupportedSqwFrequency,
                 "Unsupported square wave frequency",
             ),
-            (Error::NvramOutOfBounds, "NVRAM operation out of bounds"),
+            (
+                Error::InvalidBaseCentury,
+                "Base century must be 19 or greater",
+            ),
         ];
 
         for (error, expected) in errors {
