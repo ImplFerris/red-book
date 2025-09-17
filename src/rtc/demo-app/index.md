@@ -20,14 +20,21 @@ ds1307 = ["dep:ds1307-rtc"]
 
 We mark RTC driver dependency as optional and will only be included when their corresponding feature is enabled.
 
+> Here: replace rtc-hal, ds3231-rtc, and ds1307-rtc with your GitHub url or local folder path.
+
 ```toml
 # ...
 embedded-hal-bus = "0.3.0"
 
-rtc-hal = { version = "0.3.0", features = ["defmt"] }
-ds3231-rtc = { version = "0.2.2", optional = true }
-ds1307-rtc = { version = "0.2.2", optional = true }
+# rtc-hal = { version = "0.3.0", features = ["defmt"] }
+# ds3231-rtc = { version = "0.2.2", optional = true }
+# ds1307-rtc = { version = "0.2.2", optional = true }
+
+rtc-hal = { git = "https://github.com/<YOUR_USERNAME>/rtc-hal", features = ["defmt"] }
+ds3231-rtc = { git = "https://github.com/<YOUR_USERNAME>/ds3231-rtc", optional = true }
+ds1307-rtc = { git = "https://github.com/<YOUR_USERNAME>/ds1307-rtc", optional = true }
 ```
+
 
 ## App module (app.rs)
 
