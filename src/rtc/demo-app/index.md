@@ -2,7 +2,7 @@
 
 Now we have the RTC HAL crate and two drivers (DS1307 and DS3231) that implement the traits provided by the RTC HAL. Next, we will make a demo app to show how this works. I will make a project for the ESP32 chip.
 
-In this project, we will have two feature flags: "ds1307" (turned on by default) and "ds3231" for the demo project. I will not explain all the details about making this project (you should already know how to do this) or how to set up these feature flags. I will only talk about the important parts. I recommend you look at this repository for the complete project: "https://github.com/implferris/rtc-hal-demo"
+In this project, we will have two feature flags: "ds1307" (turned on by default) and "ds3231" for the demo project. I will not explain all the details about making this project (you should already know how to do this) or how to set up these feature flags. I will only talk about the important parts. I recommend you look at this repository for the complete project: "[https://github.com/implferris/rtc-hal-demo](https://github.com/implferris/rtc-hal-demo)"
 
 ## Cargo.toml file
 
