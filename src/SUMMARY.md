@@ -78,9 +78,9 @@
       - [Registers Module](./rtc/ds3231/registers-module.md)
       - [Main struct](./rtc/ds3231/main-struct.md)
           - [I2C](./rtc/ds3231/i2c-communication.md)
-        - [impl Rtc](./rtc/ds3231/impl-rtc.md)
-        - [impl Control](./rtc/ds3231/impl-control.md)
-        - [impl SquareWave](./rtc/ds3231/impl-square-wave.md)
-        - [Final](./rtc/ds3231/final.md)
+      - [impl Rtc](./rtc/ds3231/impl-rtc.md)
+      - [impl Control](./rtc/ds3231/impl-control.md)
+      - [impl SquareWave](./rtc/ds3231/impl-square-wave.md)
+      - [Final](./rtc/ds3231/final.md)
 
     - [Demo App](./rtc/demo-app/index.md)
