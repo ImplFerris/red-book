@@ -1,3 +1,5 @@
+{{#title Implementing RTC Trait for the DS1307 | Rust Embedded Drivers (RED) Book}}
+
 # impl Rtc
 
 Let's implement the Rtc trait from rtc-hal for our DS1307 driver. We need to implement get_datetime and set_datetime methods.

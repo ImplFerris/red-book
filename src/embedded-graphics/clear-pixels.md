@@ -1,3 +1,5 @@
+{{#title Clearing Pixels on MAX7219 LED Matrix with Embedded Graphics in Rust}}
+
 # Clear Pixels
 
 We have created functions to draw on the framebuffer, then push the framebuffer to the display. There is one more thing missing, we should provide capability to clear the local framebuffer or clear the screen (i.e clear the framebuffer and push it to the devices).

@@ -1,3 +1,5 @@
+{{#title Designing a DS3231 RTC Driver Project in Embedded Rust | RED Book}}
+
 # Project Setup
 
 Let's our implementation for the DS3231 driver also. By the end of this chapter, ds3231 project structure will look like this:

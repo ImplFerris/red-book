@@ -1,3 +1,5 @@
+{{#title Writing Basic Display Control APIs for a MAX7219 Embedded Rust Driver}}
+
 # Basic control
 
 Now, we are going to define functions that use our low-level SPI methods to control the MAX7219 chip by writing the right values to specific registers. They make it easy to perform common tasks like turning devices on or off, testing the display, clearing it, or setting limits and brightness.

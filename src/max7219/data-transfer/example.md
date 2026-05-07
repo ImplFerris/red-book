@@ -1,3 +1,5 @@
+{{#title How MAX7219 Digit Registers Control 7-Segment Displays and LED Matrix}}
+
 # Example: Writing to a Digit
 
 Just like we turned the display on by writing to the Shutdown register, we can send data to the digit registers to control what appears. The meaning of the data byte depends on whether we are using a 7-segment display or an 8x8 LED matrix.

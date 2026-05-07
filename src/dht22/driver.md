@@ -1,3 +1,5 @@
+{{#title Implementing the DHT22 Driver Core in an Embedded Rust Driver}}
+
 # Driver Implementation
 
 We will now create the dht22 module and start implementing the driver logic inside it.

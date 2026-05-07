@@ -1,3 +1,5 @@
+{{#title Designing Generic Error Types for an RTC HAL in Embedded Rust}}
+
 # Error Types
 
 Before we can define methods for our RTC traits, we need to figure out how to handle errors. We'll use the same approach as embedded-hal.

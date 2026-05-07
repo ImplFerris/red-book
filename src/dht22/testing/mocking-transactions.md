@@ -1,3 +1,5 @@
+{{#title Understanding Mocked Transactions and Pin State Sequences in embedded-hal-mock}}
+
 # Mocking Transactions
 
 One of the reasons I gave you the full test code earlier was to give you a clear picture of what we’re aiming for.

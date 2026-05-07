@@ -1,3 +1,5 @@
+{{#title Implementing Timing Utilities and Pin State Monitoring in DHT22 Embedded Rust Driver}}
+
 # Timing Utilities for Pin State Changes
 
 Before we implement the DHT22 communication protocol, we need a few utility functions to handle precise timing and pin state monitoring. These functions help us wait for the data line to go high or low, with a timeout to avoid getting stuck if the sensor becomes unresponsive.

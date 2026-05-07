@@ -1,3 +1,5 @@
+{{#title Building an embedded-graphics Compatible LED Matrix Driver in Rust}}
+
 # LED Matrix
 
 We will not implement embedded-graphics directly for the Max7219 struct because we want to keep it focused on core functions for both 7-segment and LED matrix control. Since embedded-graphics is not very useful for 7-segment displays, we'll create a separate struct called LedMatrix dedicated to LED matrix displays.

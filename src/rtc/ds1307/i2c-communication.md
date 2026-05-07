@@ -1,3 +1,5 @@
+{{#title DS1307 I2C Communication and Register Access in Embedded Rust}}
+
 # I2C Communication
 
 The DS1307 chip uses a fixed I2C device address of "0x68". We'll declare this as a constant at the top of our module:

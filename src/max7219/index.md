@@ -1,3 +1,5 @@
+{{#title Writing a Embedded Rust Driver for the MAX7219 LED Display}}
+
 # Writing a Rust Driver for the MAX7219 LED Display
 
 In this chapter, we will write an embedded driver for the MAX7219 chip. This is a popular integrated circuit that can control dot matrix displays, 7-segment displays, and bar graphs. The MAX7219 is commonly used in hobby projects like digital clocks, scrolling message boards, counters, temperature displays, simple games, and more.

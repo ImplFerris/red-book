@@ -1,3 +1,5 @@
+{{#title Understanding FC-16 LED Matrix Modules and the MAX7219}}
+
 # LED Matrix
 
 Now, let's look at the 8x8 LED matrix and how it is arranged and connected to the MAX7219. An 8x8 LED matrix consists of 64 LEDs arranged in rows and columns (8 rows and 8 columns).

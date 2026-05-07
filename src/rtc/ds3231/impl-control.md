@@ -1,3 +1,5 @@
+{{#title Developing DS3231 Oscillator Control and EOSC Bit Handling in Embedded Rust}}
+
 # impl RtcPowerControl
 
 Now that we have implemented the core Rtc trait, we can extend our DS3231 driver with additional feature-specific traits. Let's start with the `RtcPowerControl` trait, which allows us to halt or start the clock oscillator.

@@ -1,3 +1,5 @@
+{{#title Using the DHT22 Sensor Driver with ESP32 and Embedded Rust}}
+
 # Using Our DHT22 Crate with ESP32
 
 Now that we've successfully built the driver for the DHT22 sensor and verified it using mock tests, it's time to test it on actual hardware. In this section, we'll connect the DHT22 sensor to the ESP32 and run a complete example. 

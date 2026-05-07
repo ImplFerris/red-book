@@ -1,3 +1,5 @@
+{{#title Understanding LED Matrix Multiplexing and the Role of the MAX7219}}
+
 # Why MAX7219?
 
 No, this section is not about why we chose to write a driver for the MAX7219 chip (we did that because it’s simple and fun). This is about why we need this chip in the first place.

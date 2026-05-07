@@ -1,3 +1,5 @@
+{{#title Setting Up a Real-Time Clock HAL Project in Embedded Rust}}
+
 # Project Setup
 
 This is what we are aiming for:

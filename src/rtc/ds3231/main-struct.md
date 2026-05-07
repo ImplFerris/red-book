@@ -1,3 +1,5 @@
+{{#title Implementing DS3231 RTC Driver Struct and I2C Interface in Embedded Rust}}
+
 # Main struct
 
 In this section, we will define the main struct for our driver and implement main I2C communication that will let us interact with the RTC hardware.

@@ -1,3 +1,5 @@
+{{#title Writing Unit Tests for Error Types in a MAX7219 Embedded Rust Driver}}
+
 # Test Code for Error Handling
 
 Nothing much happening in this test. We're not even using embedded-hal-mock crate here. Just normal test code. You can paste this at the bottom of the error.rs module.

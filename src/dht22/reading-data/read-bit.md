@@ -1,3 +1,5 @@
+{{#title Implementing and Testing the DHT22 read_bit Function in Embedded Rust}}
+
 # Read Bit
 
 Let's implement the read_bit function. If you remember the DHT protocol we explained earlier, the DHT sensor always pulls the line low to indicate the start of each bit. Then it switches the line to high, and the duration of that high signal determines whether the bit is a 0 or a 1.

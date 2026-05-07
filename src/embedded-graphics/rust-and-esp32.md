@@ -1,7 +1,8 @@
+{{#title Using Embedded Graphics and MAX7219 LED Matrix with ESP32 in Rust}}
+
 # Using with ESP32
 
 Now that we have successfully implemented the embedded-graphics for our LED Matrix, it is time to put it to the test. I will be showing how to test it on a single LED Matrix (FC-16 module with 1088AS). You can use daisy-chained LED matrices also and try.
-
 
 ## Circuit
 

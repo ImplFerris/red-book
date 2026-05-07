@@ -1,3 +1,5 @@
+{{#title Building the Project Structure for a MAX7219 Embedded Rust Driver}}
+
 # Create Project
 
 Now that we understand the MAX7219 chip and how data is sent to control the display, we can start building our driver in Rust for a `no_std` environment.

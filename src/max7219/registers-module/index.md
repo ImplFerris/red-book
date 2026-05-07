@@ -1,3 +1,5 @@
+{{#title Building Type-Safe MAX7219 Register Handling in Embedded Rust}}
+
 # Registers Module
 
 In this chapter, we will work on the registers module(registers.rs). We could use the register values directly, but using enums is more idiomatic and provides better type safety. We will define two enums here: `Register` and `DecodeMode`. 

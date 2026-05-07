@@ -1,3 +1,5 @@
+{{#title Building Complete DS1307 RTC Driver with rtc-hal in Embedded Rust}}
+
 # Final
 
 Congratulations! You have successfully completed the chapter and implemented the rtc-hal for the DS1307 driver.

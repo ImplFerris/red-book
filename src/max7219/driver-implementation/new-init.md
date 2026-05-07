@@ -1,3 +1,5 @@
+{{#title Implementing MAX7219 Driver Initialization Functions in Embedded Rust}}
+
 # Initialization functions
 
 In this section, we define functions that the end user will use to create and initialize new instances of the Max7219 struct. These functions provide the starting point for using the driver. Later, we will add other methods for the struct inside the same implementation block.

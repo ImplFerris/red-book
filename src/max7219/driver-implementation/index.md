@@ -1,3 +1,5 @@
+{{#title Creating the Core SPI Driver for the MAX7219 in Embedded Rust}}
+
 # Write an Embedded Rust Driver for the MAX7219
 
 Now, we will start working on the core functionalities of the MAX7219 driver. We will create a struct called Max7219. This struct will be exposed to the user so they can use it to control the MAX7219 chip.

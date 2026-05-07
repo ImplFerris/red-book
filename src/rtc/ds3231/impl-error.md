@@ -1,3 +1,5 @@
+{{#title Designing Error Handling for DS3231 RTC Driver in Embedded Rust}}
+
 # Error Handling Implementation
 
 In this section, we will implement error handling for our DS3231 driver.

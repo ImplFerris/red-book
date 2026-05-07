@@ -1,3 +1,5 @@
+{{#title Writing Tests for an Embedded Rust Driver Using embedded-hal-mock}}
+
 # Writing Tests for Embedded Rust Using Embedded HAL Mock
 
 Before moving further into the chapter, let me introduce a nice crate: [`embedded-hal-mock`](https://docs.rs/embedded-hal-mock/latest/embedded_hal_mock/). This crate lets us mock the Embedded HAL traits. The implementations don't touch any real hardware. Instead, they use mock or no-op versions of the traits.

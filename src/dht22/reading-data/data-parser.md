@@ -1,3 +1,5 @@
+{{#title How a DHT22 Embedded Rust Driver Parses Sensor Data}}
+
 # Data Parser
 
 The parse_data function takes the raw data bytes from the sensor and converts them into meaningful temperature and humidity values. The DHT22 sends two bytes for humidity and two for temperature.

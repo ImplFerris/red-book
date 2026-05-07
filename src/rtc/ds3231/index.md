@@ -1,3 +1,5 @@
+{{#title Developing an Embedded Rust Driver for the DS3231 RTC | RED Book}}
+
 # DS3231
 
 In this chapter, we will implement the RTC HAL and create a driver for the DS3231 chip. Most of the concepts and code will be similar to the DS1307 driver.

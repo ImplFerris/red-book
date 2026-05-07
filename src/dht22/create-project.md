@@ -1,3 +1,5 @@
+{{#title Creating a no_std Embedded Rust DHT22 Driver Project with embedded-hal}}
+
 # Create Project
 
 Now that we have a solid understanding of the DHT22 sensor's communication protocol and data format, let's begin implementing the driver in Rust for a no_std environment.

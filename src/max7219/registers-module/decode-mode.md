@@ -1,3 +1,4 @@
+{{#title Implementing MAX7219 Code B Decode Mode Enum in Embedded Rust}}
 
 # The DecodeMode Enum
 

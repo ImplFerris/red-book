@@ -1,3 +1,5 @@
+{{#title Defining DS3231 RTC Register Enum and Control Bit Flags in Embedded Rust}}
+
 # Registers Module
 
 We will create an enum to represent the registers of the DS3231 RTC:

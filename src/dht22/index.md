@@ -1,3 +1,5 @@
+{{#title Writing an Embedded Rust Driver for the DHT22 Temperature and Humidity Sensor}}
+
 # Writing an Embedded Rust Driver for the DHT22
 
 The DHT22, also known as AM2302, is a digital sensor used for measuring both temperature and humidity. If you're building a device that needs to detect environmental conditions like room temperature or humidity levels, this sensor is a great choice. You can easily purchase it online from stores at an affordable price. The older version is DHT11 which is slighly less accurate than DHT22.

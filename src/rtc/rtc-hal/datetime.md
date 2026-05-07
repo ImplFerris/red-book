@@ -1,3 +1,5 @@
+{{#title DateTime Module in Rust for Embedded RTC Drivers | Rust Embedded Drivers (RED) Book}}
+
 # DateTime module (datetime.rs)
 
 The DateTime module provides a simple date and time struct for RTC drivers. It stores year, month, day, hour, minute, and second values with built-in validation to prevent invalid dates. I won't go through this module step by step since it's pretty straightforward - just basic validation and getters/setters with nothing particularly complex happening here. I want you to go through the code once and understand before proceeding.

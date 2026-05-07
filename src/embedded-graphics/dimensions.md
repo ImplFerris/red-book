@@ -1,3 +1,5 @@
+{{#title Implementing Embedded Graphics Dimensions and Bounding Boxes in Rust}}
+
 # Dimensions
 
 Let's begin with the [Dimensions](https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/geometry/trait.Dimensions.html) trait. This trait is used by display drivers and drawable objects in embedded-graphics to describe the area they cover.

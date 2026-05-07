@@ -1,3 +1,5 @@
+{{#title Implementing the RTC HAL Error Module in Embedded Rust}}
+
 # Error Module
 
 Now it is time to put the design into action. In this section, we will implement the error module (error.rs).

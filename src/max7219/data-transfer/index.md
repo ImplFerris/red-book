@@ -1,3 +1,5 @@
+{{#title MAX7219 Registers and SPI Data Packets: How to Control the Display}}
+
 # How Do We Tell the MAX7219 What to Show?
 
 To control what the MAX7219 displays, we need to send instructions using the SPI communication. We use the DIN pin to send data, and we synchronize each bit with the CLK pin.

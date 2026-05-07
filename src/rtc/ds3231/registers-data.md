@@ -1,3 +1,5 @@
+{{#title Developing a DS3231 BCD DateTime Parser in Embedded Rust | RED Book}}
+
 # Details of Time Data Bits - DS3231
 
 Now let's look at how the data is stored inside each register of the DS3231. The structure is almost the same as the DS1307 with slight changes.

@@ -1,3 +1,5 @@
+{{#title Using the DS1307 Real-Time Clock with Embedded Rust | RED Book}}
+
 # DS1307
 
 One of the RTC chips for which we will first implement the RTC HAL is the DS1307. The DS1307 keeps track of seconds, minutes, hours, day of the week, date of the month, month, and year with leap-year compensation valid up to the year 2100. The device automatically adjusts the end-of-month date for months with fewer than 31 days, including leap-year corrections.

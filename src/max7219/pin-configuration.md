@@ -1,3 +1,5 @@
+{{#title Understanding MAX7219 Pin Configuration and Communication Pins}}
+
 # Pin Configuration
 
 The MAX7219 has a total of 24 pins. Out of these, 8 are digit pins (labeled DIG0 to DIG7) and 8 are segment pins (labeled SEG A to SEG G and DP). The remaining pins are used for power and communication.

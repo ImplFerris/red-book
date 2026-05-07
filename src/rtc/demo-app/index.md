@@ -1,3 +1,5 @@
+{{#title Developing Platform-Agnostic Embedded Rust Drivers for DS1307 and DS3231}}
+
 # Demo App
 
 Now we have the RTC HAL crate and two drivers (DS1307 and DS3231) that implement the traits provided by the RTC HAL. Next, we will make a demo app to show how this works. I will make a project for the ESP32 chip.

@@ -1,3 +1,5 @@
+{{#title Embedded Rust DS1307 Power Control and Clock Management | RED Book}}
+
 # impl RtcPowerControl
 
 Now that we have implemented the core Rtc trait, we can extend our DS1307 driver with additional feature-specific traits. Let's start with the `RtcPowerControl` trait, which allows us to halt or start the clock oscillator.

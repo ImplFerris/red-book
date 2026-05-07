@@ -1,3 +1,5 @@
+{{#title Designing RTC Hardware Abstraction Layer in Embedded Rust}}
+
 # Real-Time Clock (RTC) Hardware Abstraction Layer (HAL)
 
 In this chapter, we'll develop an RTC HAL crate that provides generic traits for Real Time Clock (RTC) functionality. Our design follows the embedded-hal design pattern, creating a standardized interface that can work across different RTCs.

@@ -1,3 +1,5 @@
+{{#title Writing Raw Segment Data and Decode Modes to the MAX7219 in Embedded Rust}}
+
 # Digit and Decode Mode Functions
 
 We will add functions to control individual digit segments and set decode modes for devices.

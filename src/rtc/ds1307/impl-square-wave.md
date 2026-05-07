@@ -1,3 +1,5 @@
+{{#title DS1307 Square Wave Frequency and SQW/OUT Pin Control in Rust | RED Book}}
+
 # impl SquareWave
 
 Let's implement the Square Wave trait to enable Square Wave output support for the DS1307.

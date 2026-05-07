@@ -1,3 +1,5 @@
+{{#title Implementing Register Data Transfer over SPI in a MAX7219 Embedded Rust}}
+
 # SPI Communication
 
 We will write two internal helper functions to handle SPI communication with the MAX7219 devices in the chain(or just single device).

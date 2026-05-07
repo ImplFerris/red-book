@@ -1,3 +1,5 @@
+{{#title Preparing a MAX7219 Embedded Rust Driver for no_std and Unit Testing}}
+
 # Usual Setup
 
 In this section, we'll go through the basic setup for our library.  It's very similar to what we did in the DHT22 chapter. In later chapters, we will skip the explanations for these basic setups and provide only the code.

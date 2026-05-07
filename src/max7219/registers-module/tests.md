@@ -1,3 +1,4 @@
+{{#title Unit Testing the MAX7219 Registers Module in Embedded Rust}}
 
 # Tests for Register Module
 

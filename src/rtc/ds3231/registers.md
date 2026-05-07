@@ -1,3 +1,5 @@
+{{#title Creating a DS3231 DateTime and Alarm Register Driver in Embedded Rust}}
+
 # DS3231 Registers
 
 The datetime registers in the DS3231 are almost the same as those in the DS1307. Both chips store time and date information in a series of registers that you can read or write through I2C.

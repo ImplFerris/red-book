@@ -1,3 +1,5 @@
+{{#title Accessing RTC Non-Volatile Memory in Embedded Rust | RED Book}}
+
 # Non-volatile memory
 
 Some RTCs include built-in non-volatile memory (NVRAM) for storing user data that persists even when the main power is lost. For example, the DS1307 has 56 bytes of NVRAM, while the DS3231 has none. This memory is separate from the timekeeping registers and can store configuration settings, calibration data, or any application-specific information.

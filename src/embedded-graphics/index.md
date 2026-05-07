@@ -1,3 +1,5 @@
+{{#title Implementing embedded-graphics to MAX7219 LED Matrix Driver in Embedded Rust}}
+
 # Implementing Embedded Graphics for Max7219 Rust Driver
 
 In this chapter, we are not going to create a new driver from scratch. Instead, we will build on top of the Max7219 driver we already wrote. I think the Max7219 and the LED Matrix are a perfect choice to introduce you to the embedded-graphics crate. You can extend the Max7219 driver (similar to the max7219-display crate) we created in the previous chapter, or you can write this as a separate project that uses the Max7219 driver. The choice is yours.

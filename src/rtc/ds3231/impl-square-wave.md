@@ -1,3 +1,5 @@
+{{#title Developing DS3231 Square Wave Frequency Control in Embedded Rust | RED Book}}
+
 # impl SquareWave
 
 Let's implement the Square Wave trait to enable square wave output support for the DS3231. The core concepts are similar to the DS1307 implementation covered in the previous chapter, but the DS3231 has different frequency options and control mechanisms.

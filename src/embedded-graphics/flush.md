@@ -1,3 +1,5 @@
+{{#title Flushing Embedded Graphics Framebuffer to MAX7219 LED Matrix in Rust}}
+
 # Flushing the Framebuffer to the Max7219 LED Matrix
 
 We have successfully implemented embedded-graphics for the LedMatrix, and now we need to update the actual LED matrix hardware with the pixel data stored in our internal framebuffer. For this, we will define a method called "flush".

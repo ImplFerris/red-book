@@ -1,3 +1,5 @@
+{{#title DS3231 RTC Driver Library Structure in Embedded Rust | RED Book}}
+
 # Final
 
 Finally, we have successfully implemented the rtc-hal traits for the DS3231 driver. We will now update lib.rs to re-export the core traits and main struct, providing a clean and convenient public API for users of our driver.

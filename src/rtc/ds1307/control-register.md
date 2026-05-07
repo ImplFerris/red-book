@@ -1,3 +1,5 @@
+{{#title DS1307 Square Wave Generator and Control Register Bits | RED Book}}
+
 # Control: Special control register
 
 The DS1307 has a special pin called SQW/OUT that can do two different things depending on how you configure it. Think of it like a multi-purpose output that you can control through the Control Register (located at address 07h).

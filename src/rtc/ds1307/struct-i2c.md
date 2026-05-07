@@ -1,3 +1,5 @@
+{{#title Creating a Generic DS1307 RTC Driver for Embedded Rust | RED Book}}
+
 # Main struct
 
 In this section, we will define the main struct for our driver and implement main I2C communication that will let us interact with the RTC hardware.

@@ -1,3 +1,5 @@
+{{#title Using MAX7219 FC-16 LED Matrix Displays with ESP32 and Embedded Rust}}
+
 # Using with ESP32
 
 Now that we have successfully built the driver for the MAX7219 chip and verified it with mock tests, it's time to try it on real hardware. I purchased the Single LED Matrix (FC-16 module with 1088AS) powered by the MAX7219. You can also get daisy-chained LED matrices, but make sure it is the FC-16 type to simplify testing since our driver is designed and tested with that module in mind.

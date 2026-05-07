@@ -1,3 +1,5 @@
+{{#title Understanding DS1307 RTC Registers in Embedded Rust | RED Book}}
+
 # DS1307 Registers
 
 The DS1307 contains 7 registers for storing date and time data, one control register, and 56 registers for non-volatile RAM.

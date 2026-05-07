@@ -1,3 +1,5 @@
+{{#title DS1307 Non-Volatile Memory Access | Embedded Rust Driver Book}}
+
 # impl RtcNvram
 
 Let's implement the `RtcNvram` trait to provide access to the DS1307's non-volatile memory.

@@ -1,3 +1,4 @@
+{{#title Understanding DS1307 Time Data Bits and BCD Encoding | RED Book}}
 
 # Details of Time Data Bits
 

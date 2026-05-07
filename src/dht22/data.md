@@ -1,3 +1,5 @@
+{{#title Understanding DHT22 Data Bits: Humidity, Temperature, and Checksum Explained}}
+
 # Data Bits
 
 Once the DHT22 completes its initial response, it sends a total of 40 bits of data to the microcontroller. These 40 bits are structured as five consecutive bytes, transmitted one bit at a time over the single-wire bus. The data is sent most significant bit (MSB) first.

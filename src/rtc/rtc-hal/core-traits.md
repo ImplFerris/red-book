@@ -1,3 +1,5 @@
+{{#title Designing a Hardware-Agnostic RTC Trait in Embedded Rust}}
+
 # Core Traits
 
 With our error handling foundation in place, we can now implement the core "Rtc" trait that defines the essential RTC operations:

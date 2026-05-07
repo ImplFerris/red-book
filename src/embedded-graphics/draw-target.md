@@ -1,3 +1,5 @@
+{{#title Using Embedded Graphics DrawTarget with a MAX7219 LED Matrix in Rust}}
+
 # Implementing Draw Target for Max7219 LedMatrix
 
 Next, we will implement the DrawTarget trait for our LedMatrix struct. This trait allows us to draw pixels and shapes onto the LED matrix using embedded-graphics APIs.

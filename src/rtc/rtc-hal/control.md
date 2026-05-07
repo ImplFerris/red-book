@@ -1,3 +1,5 @@
+{{#title Building RTC Power Control Trait | Rust Embedded Drivers (RED) Book}}
+
 # Control Trait
 
 This could have been part of the original `Rtc` trait, but I'm not sure if all RTC hardware supports power control yet. So even though this is basic functionality, I've separated it into its own trait. This trait depends on the Rtc supertrait, which means drivers must always implement the Rtc trait first if they want to use this and other similar traits we'll create later.

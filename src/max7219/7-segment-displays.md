@@ -1,3 +1,4 @@
+{{#title How the MAX7219 Controls 7-Segment Displays Using Multiplexing}}
 
 # 7-Segement Displays
 

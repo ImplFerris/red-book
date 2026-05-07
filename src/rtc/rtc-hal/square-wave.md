@@ -1,3 +1,5 @@
+{{#title Building an RTC Square Wave Control Trait in Rust | Rust Embedded Drivers Book}}
+
 # Square Wave Trait 
 
 Many RTCs support a feature called "square wave" output through a hardware pin. You can set different square wave frequencies like 1Hz, 1024 Hz, 32kHz and so on. The available frequencies depend on the specific RTC chip.

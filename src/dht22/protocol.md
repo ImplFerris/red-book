@@ -1,3 +1,5 @@
+{{#title How DHT22 Temperature and Humidity Sensor Single-Wire Protocol Works}}
+
 # How the DHT22 Sensor Communicates Over a Single Wire
 
 The DHT22 communicates with the microcontroller using a custom single-wire protocol. It uses only one data line for transferring data. The microcontroller must follow strict timing rules to read the temperature and humidity data correctly from the sensor.

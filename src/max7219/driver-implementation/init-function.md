@@ -1,3 +1,5 @@
+{{#title Powering On and Initializing MAX7219 Displays in Embedded Rust}}
+
 # Init function
 
 Now that we have defined all the necessary functions, we are almost done with the driver. The last function we need to implement is the `init` method.

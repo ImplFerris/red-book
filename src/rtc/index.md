@@ -1,3 +1,5 @@
+{{#title Developing Real Time Clock Driver and RTC HAL in Embedded Rust}}
+
 # Real Time Clock
 
 Have you ever wondered how your computer, phone, or even your microwave keeps track of time even when it's unplugged? That's where Real Time Clock (RTC) modules come in. It is a kind of watch but tiny in size which will be used with microcontrollers and computers.

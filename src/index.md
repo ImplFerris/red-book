@@ -1,3 +1,5 @@
+{{#title Learn Embedded Rust Driver Development with the RED Book}}
+
 # Rust Embedded Drivers (RED) Book
 
 In this book, we will learn how to create simple drivers for hardware devices that work within the embedded Rust ecosystem. 

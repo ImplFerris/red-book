@@ -1,3 +1,5 @@
+{{#title Implementing and Testing the DHT22 Start Sequence in Embedded Rust}}
+
 # Reading Data
 
 The user of our driver will basically call dht.read() to get the sensor data. This function returns a Reading struct that contains both temperature and humidity values. 

@@ -1,3 +1,5 @@
+{{#title Creating a DS3231 I2C Driver Interface with Embedded Rust | RED Book}}
+
 # I2C Communication
 
 The DS3231 chip also use the same fixed I2C device address of "0x68". We'll declare this as a constant at the top of our module:

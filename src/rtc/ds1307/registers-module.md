@@ -1,3 +1,5 @@
+{{#title Embedded Rust DS1307 Register Map and Control Bit Definitions | RED Book}}
+
 # Registers Module
 
 We will create an enum to represent the registers of the DS1307 RTC:

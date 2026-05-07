@@ -1,3 +1,5 @@
+{{#title Designing Error Types and Result Handling in a MAX7219 Embedded Rust Driver}}
+
 # Error Handling
 
 In this chapter, we will explain how error handling is designed and implemented in our MAX7219 driver using Rust's enum and traits. All these related code goes inside the error.rs module.

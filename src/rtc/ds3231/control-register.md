@@ -1,3 +1,5 @@
+{{#title Creating a DS3231 RTC Control Register Implementation with Embedded Rust}}
+
 # Control Register
 
 The DS3231 contains two main control registers that configure device operation, alarm functionality, and output settings. These registers are accessed via I2C at addresses 0x0E and 0x0F.

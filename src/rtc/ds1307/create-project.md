@@ -1,3 +1,5 @@
+{{#title Creating a DS1307 RTC Driver Library in Embedded Rust | RED Book}}
+
 # Project Setup
 
 Now that we have enough information about the DS1307 device, let's start writing the code.

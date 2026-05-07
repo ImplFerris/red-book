@@ -1,3 +1,5 @@
+{{#title Understanding Binary Coded Decimal (BCD) in Embedded Rust | RED Book}}
+
 # Binary Coded Decimal(BCD) utilities
 
 We won't declare any traits here - instead we'll provide utility functions for BCD operations. Most RTC chips use BCD format to store time and date values.

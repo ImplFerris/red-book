@@ -1,3 +1,5 @@
+{{#title Implementing Error Handling in a DHT22 Embedded Rust Driver}}
+
 # Error Handling
 
 The DHT22 sensor communication is time-sensitive and error-prone. To deal with possible failures, we define a custom DhtError enum that describes what can go wrong during a sensor read.

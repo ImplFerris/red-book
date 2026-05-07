@@ -1,3 +1,5 @@
+{{#title How a DHT22 Embedded Rust Driver Reads Bytes One Bit at a Time}}
+
 # Read Byte
 
 Now let's implement the read_byte function. This function reads 8 bits one after another and combines them into a single u8 byte.

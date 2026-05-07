@@ -1,3 +1,5 @@
+{{#title Developing a DS3231 Embedded Rust Driver with Century Bit Handling}}
+
 # impl Rtc
 
 Let's implement the Rtc trait from rtc-hal for the DS3231 driver. We need to implement get_datetime and set_datetime methods.

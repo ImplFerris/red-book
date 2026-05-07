@@ -1,3 +1,5 @@
+{{#title Implementing the DHT22 read Function and Testing Checksum Validation in Embedded Rust}}
+
 # Final Boss
 
 We have now implemented all the building blocks of our DHT22 driver. The last piece is the read function, which brings everything together and is the main function users will call to get a sensor reading. 

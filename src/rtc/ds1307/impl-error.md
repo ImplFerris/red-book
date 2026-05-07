@@ -1,3 +1,5 @@
+{{#title Embedded Rust Error Handling for DS1307 RTC Drivers | RED Book}}
+
 # Error Handling Implementation
 
 In this section, we will implement error handling for our DS1307 driver.
