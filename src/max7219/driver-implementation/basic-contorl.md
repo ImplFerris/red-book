@@ -85,6 +85,9 @@ pub fn set_intensity(&mut self, device_index: usize, intensity: u8) -> Result<()
 }
 
 pub fn set_intensity_all(&mut self, intensity: u8) -> Result<()> {
+    if intensity > 0x0F {
+        return Err(Error::InvalidIntensity);
+    }
     let ops = [(Register::Intensity, intensity); MAX_DISPLAYS];
     self.write_all_registers(&ops[..self.device_count])
 }
