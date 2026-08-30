@@ -6,7 +6,7 @@ src = "src"
 
 [output.html]
 git-repository-url = "https://github.com/ImplFerris/red-book"
-cname = "mb2.implrust.com"
+cname = "red.implrust.com"
 preferred-dark-theme = "ayu"
 default-theme = "light"
 mathjax-support = true
@@ -14,6 +14,8 @@ mathjax-support = true
 # Don't show table of contents for entire page in the navigation bar
 # Pretty confusing to look at the chapter 
 sidebar-header-nav = false
+
+additional-css = ["theme/css/custom.css"]
 
 # [output.html.playground]
 # editable = true
