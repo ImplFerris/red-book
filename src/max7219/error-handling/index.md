@@ -38,7 +38,7 @@ pub enum Error {
 
 ## Converting SPI Errors into Our Driver Error
 
-The MAX7219 driver communicates over SPI, which may produce errors defined by the SPI implementation. To unify error handling, we implement From<E> for our Error where E is any embedded-hal SPI error:
+The MAX7219 driver communicates over SPI, which may produce errors defined by the SPI implementation. To unify error handling, we implement `From<E>` for our Error where E is any embedded-hal SPI error:
 
 ```rust
 impl<E> From<E> for Error
@@ -82,7 +82,7 @@ To simplify function signatures throughout the driver, we define a crate-local R
 pub(crate) type Result<T> = core::result::Result<T, crate::error::Error>;
 ```
 
-This lets us write all function signatures using just Result<T>, making the code cleaner and easier to read.
+This lets us write all function signatures using just `Result<T>`, making the code cleaner and easier to read.
 
 Instead of writing:
 

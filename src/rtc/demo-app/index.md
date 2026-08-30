@@ -105,7 +105,7 @@ Let's break it down.
 
 ### Main struct
 
-The app uses generics (<RTC>) so it can work with any RTC chip that implements our RTC HAL traits. This means the same code works for both DS1307 and DS3231.
+The app uses generics (`<RTC>`) so it can work with any RTC chip that implements our RTC HAL traits. This means the same code works for both DS1307 and DS3231.
 
 ```rust
 pub struct DemoApp<RTC> {

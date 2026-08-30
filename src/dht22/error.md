@@ -44,4 +44,4 @@ The DhtError enum represents three different kinds of errors that can occur duri
 
 - **PinError:** Sometimes, GPIO operations themselves can fail. For example, setting a pin high or low, or reading its level, may return an error depending on the HAL used. We wrap such errors using DhtError::PinError so that they can be reported along with the rest. 
 
-We also implement From<E> for DhtError<E>. This allows any pin-level error to be automatically converted into our error type. It enables us to use the ? operator when calling GPIO methods inside the driver, without having to convert the error manually every time.
+We also implement `From<E>` for `DhtError<E>`. This allows any pin-level error to be automatically converted into our error type. It enables us to use the ? operator when calling GPIO methods inside the driver, without having to convert the error manually every time.
