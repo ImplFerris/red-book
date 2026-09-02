@@ -82,5 +82,11 @@
       - [impl Control](./rtc/ds3231/impl-control.md)
       - [impl SquareWave](./rtc/ds3231/impl-square-wave.md)
       - [Final](./rtc/ds3231/final.md)
-
     - [Demo App](./rtc/demo-app/index.md)
+    - [Alarm](./rtc/alarm/index.md)
+        - [Alarm Config](./rtc/alarm/alarm-config.md)
+        - [Alarm Builder](./rtc/alarm/alarm-builder.md)
+        - [Alarm Trait](./rtc/alarm/alarm-trait.md)
+    - [DS3231 Alarm](./rtc/ds3231/alarm.md)
+        - [impl Alarm](./rtc/ds3231/impl-alarm.md)
+    - [Alarm Demo](./rtc/alarm-demo/index.md)

@@ -20,6 +20,7 @@ where
     UnsupportedSqwFrequency,
     DateTime(DateTimeError),
     InvalidBaseCentury,
+    InvalidAlarmConfig(&'static str),
 }
 ```
 
@@ -39,6 +40,7 @@ where
             Error::DateTime(e) => write!(f, "Invalid date/time values: {e}"),
             Error::UnsupportedSqwFrequency => write!(f, "Unsupported square wave frequency"),
             Error::InvalidBaseCentury => write!(f, "Base century must be 19 or greater"),
+            Error::InvalidAlarmConfig(msg) => write!(f, "Invalid Alarm config: {msg}"),
         }
     }
 }
@@ -73,6 +75,7 @@ where
             Error::DateTime(_) => rtc_hal::error::ErrorKind::InvalidDateTime,
             Error::UnsupportedSqwFrequency => rtc_hal::error::ErrorKind::UnsupportedSqwFrequency,
             Error::InvalidBaseCentury => rtc_hal::error::ErrorKind::InvalidDateTime,
+            Error::InvalidAlarmConfig(_) => rtc_hal::error::ErrorKind::InvalidAlarmConfig,
         }
     }
 }

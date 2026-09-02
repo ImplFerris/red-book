@@ -307,7 +307,7 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
-    use embedded_hal_mock::eh1::i2c::{Mock as I2cMock, Transaction as I2cTrans};
+    use embedded_hal_mock::eh1::i2c::{Mock as I2cMock, Transaction as I2cTransaction};
     use rtc_hal::datetime::DateTime;
 
     fn new_ds3231(i2c: I2cMock) -> Ds3231<I2cMock> {
@@ -319,7 +319,7 @@ mod tests {
         // Simulate reading: sec=0x25(25), min=0x59(59), hour=0x23(23h 24h mode),
         // day_of_week=0x04, day_of_month=0x15(15), month=0x08(August), year=0x23(2023)
         let data = [0x25, 0x59, 0x23, 0x04, 0x15, 0x08, 0x23];
-        let expectations = [I2cTrans::write_read(
+        let expectations = [I2cTransaction::write_read(
             0x68,
             vec![Register::Seconds.addr()],
             data.to_vec(),
@@ -343,7 +343,7 @@ mod tests {
     fn test_set_datetime_within_base_century() {
         let datetime = DateTime::new(2025, 8, 27, 15, 30, 45).unwrap();
         // base_century = 20, so 2000-2199 valid. 2023 fits.
-        let expectations = [I2cTrans::write(
+        let expectations = [I2cTransaction::write(
             0x68,
             vec![
                 Register::Seconds.addr(),
@@ -368,7 +368,7 @@ mod tests {
     fn test_set_datetime_next_century() {
         let datetime = DateTime::new(2150, 1, 1, 0, 0, 0).unwrap();
         // Expect century bit set in month register
-        let expectations = [I2cTrans::write(
+        let expectations = [I2cTransaction::write(
             0x68,
             vec![
                 Register::Seconds.addr(),
@@ -415,7 +415,7 @@ mod tests {
             0x01,        // month = January, century=0
             0x23,        // year = 23
         ];
-        let expectations = [I2cTrans::write_read(
+        let expectations = [I2cTransaction::write_read(
             0x68,
             vec![Register::Seconds.addr()],
             data.to_vec(),
@@ -440,7 +440,7 @@ mod tests {
             0x12,        // month = December
             0x23,        // year = 23
         ];
-        let expectations = [I2cTrans::write_read(
+        let expectations = [I2cTransaction::write_read(
             0x68,
             vec![Register::Seconds.addr()],
             data.to_vec(),
@@ -467,7 +467,7 @@ mod tests {
             0x02,        // month = Feb
             0x23,        // year = 23
         ];
-        let expectations = [I2cTrans::write_read(
+        let expectations = [I2cTransaction::write_read(
             0x68,
             vec![Register::Seconds.addr()],
             data.to_vec(),
@@ -493,7 +493,7 @@ mod tests {
             0x03,        // month = Mar
             0x23,        // year = 23
         ];
-        let expectations = [I2cTrans::write_read(
+        let expectations = [I2cTransaction::write_read(
             0x68,
             vec![Register::Seconds.addr()],
             data.to_vec(),

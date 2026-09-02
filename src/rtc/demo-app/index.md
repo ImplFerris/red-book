@@ -9,6 +9,7 @@ In this project, we will have two feature flags: "ds1307" (turned on by default)
 ## Cargo.toml file
 
 ### Feature flag
+
 The feature flags define which RTC driver to include in the build. We set DS1307 as the default.
 
 ```toml
